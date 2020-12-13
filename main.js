@@ -16,7 +16,7 @@ setInterval(()=>{
 
     //update menuTimer
     let time = document.getElementById('timerVal').innerHTML;
-    if (!time) time = 'Game Ended';
+    if (!time || time == "00:00") time = document.getElementById('endTimer').innerHTML;
     document.getElementById('menuTimer').innerHTML = time;
     
 }, 1000);
