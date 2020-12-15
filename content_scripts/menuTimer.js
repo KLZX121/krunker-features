@@ -3,7 +3,7 @@ document.getElementById('spectButton').setAttribute('style', 'top: 20px;left: 55
 
 const menuTimer = document.createElement("div");
 menuTimer.setAttribute('id', 'menuTimer');
-menuTimer.setAttribute('style', "margin-bottom: 50px;color: cyan");
+menuTimer.setAttribute('style', "margin-bottom: 50px");
 
 setInterval(()=>{
 
@@ -13,6 +13,7 @@ setInterval(()=>{
     //update menuTimer
     let time = document.getElementById('timerVal').innerHTML;
     if (!time || time == "00:00") time = document.getElementById('endTimer').innerHTML;
+    menuTimer.setAttribute('style', `color: ${parseInt(time) < 1 ? 'orange' : 'cyan'}`);
     document.getElementById('menuTimer').innerHTML = time;
     
 }, 500);
