@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["https://krunker.io/*"],
-      "js": ["./features/menuTimer.js", "./features/findNewGame.js", "main.js"]
+      "js": ["./features/menuTimer.js", "./features/findNewGame.js"]
     }
   ],
   "icons": {
