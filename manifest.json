@@ -6,12 +6,15 @@
   "content_scripts": [
     {
       "matches": ["https://krunker.io/*"],
-      "js": ["./features/menuTimer.js", "./features/findNewGame.js"]
+      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js"]
     }
   ],
   "icons": {
     "16": "imgs/icon_16.png",
     "48": "imgs/icon_48.png",
     "128": "imgs/icon_128.png" 
+  },
+  "browser_action":{
+    "default_popup": "popup.html"
   }
 }
