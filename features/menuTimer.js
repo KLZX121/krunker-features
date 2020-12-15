@@ -1,6 +1,4 @@
 'use strict';
-
-//move spectate button
 document.getElementById('spectButton').setAttribute('style', 'top: 20px;left: 550px');
 
 const menuTimer = document.createElement("div");
@@ -18,11 +16,3 @@ setInterval(()=>{
     document.getElementById('menuTimer').innerHTML = time;
     
 }, 500);
-
-//Find New Game on F4
-document.onkeydown = findNewGame;
-
-function findNewGame(a){
-    if (a.code !== 'F4') return;
-    window.location.href = 'https://krunker.io';
-};
