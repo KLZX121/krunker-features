@@ -10,6 +10,7 @@ Note: Subsequent versions inherit features from previous versions
   * A simple time display on the menu that shows the time remaining in-game without the need to enter the game
   * Shows time to next round when game has ended
   * Spectate button is moved to the top left
+  * Time changes to orange when there is less than 1 minute left in game
 * **Quick Game Finder**
   * Default hotkey: F4
   * Automatically finds a new game and joins it
