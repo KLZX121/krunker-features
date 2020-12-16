@@ -15,24 +15,22 @@
         <section id="settings">
 
             <section id="menuTimer">
-                <h2>Menu Timer</h2>
-
                 <form id="menuTimerColour">
-                    <h3>Colour</h3>
-                    <input type="color" name="normalTimeColour" id="normalTimeColour">
+                    <h3>Menu Timer Colour</h3>
                     <label for="normalColour">Normal</label>
+                    <input type="color" name="normalTimeColour" id="normalTimeColour">
 
-                    <input type="color" name="lowTimeColour" id="lowTimeColour">
                     <label for="lowTimeColour">Low Time</label>
+                    <input type="color" name="lowTimeColour" id="lowTimeColour">
 
                     <button id="applyColourBtn">Apply</button>
                     <button id="resetColourBtn">Reset</button>
                 </form>
 
             </section>
+
             <section id="findNewGame">
-                <h2>Find New Game</h2>
-                <h3>Hotkey</h3>
+                <h3>Find New Game Hotkey</h3>
                 <p id="hotkeyDisplay"></p>
                 <button id="recordHotkeyBtn">Change</button>
             </section>
@@ -40,7 +38,17 @@
         </section>
 
         <section id="info" style="display: none;">
-            <h2>Info</h2>
+            <h3>v2.0</h3>
+            <ul>
+                <li>Added this UI! - customise the menu timer colours and set a custom hotkey</li>
+            </ul>
+
+            <h3>Links</h3>
+            <h4><a href="https://github.com/KLZX121/krunker-features" target="_blank">GitHub</a></h4>
+            <p>Check documentation and new releases</p>
+
+            <h4><a href="https://discord.com/invite/CjdmDQn" target="_blank">Discord</a></h4>
+            <p>Get live updates (This is my Krunker clan server - get the @Extension role when you join)</p>
         </section>
 
         <script src="./popup.js" type="module"></script>
