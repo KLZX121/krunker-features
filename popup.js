@@ -13,7 +13,7 @@ function switchToInfo(){
     info.style.display = 'block';
 };
 
-//Colour form handling===========================
+//Menu Timer=====================================
 
 let normalTimeColour = document.getElementById('normalTimeColour');
 let lowTimeColour = document.getElementById('lowTimeColour');
@@ -37,3 +37,28 @@ resetColourBtn.onclick = function resetColour(){
     chrome.storage.sync.set({'normalTimeColour':"#00FFFF", "lowTimeColour": "#FFA500"});
 };
 
+//Find New Game==================================
+
+const recordHotkeyBtn = document.getElementById('recordHotkeyBtn');
+let hotkeyDisplay = document.getElementById('hotkeyDisplay');
+let hotkey;
+
+//Display hotkey
+chrome.storage.sync.get(['newGameHotkey'], result => {
+    hotkey = result.newGameHotkey;
+    hotkeyDisplay.innerHTML = hotkey;
+});
+
+recordHotkeyBtn.onclick = function recordHotkey(){
+    if (recordHotkeyBtn.innerHTML === 'Cancel'){
+        recordHotkeyBtn.innerHTML = 'Change';
+        return;
+    }
+    recordHotkeyBtn.innerHTML = 'Cancel';
+    document.addEventListener("keydown", event =>{
+        hotkey = event.key;
+        hotkeyDisplay.innerHTML = hotkey;
+        recordHotkeyBtn.innerHTML = 'Change';
+        chrome.storage.sync.set({'newGameHotkey': hotkey});
+    }, {once: true});
+};
