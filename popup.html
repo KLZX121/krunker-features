@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html style="width:300px">
+
+    <header>
+        <h1 style="text-align: center;">Krunker Features</h1>
+    </header>
+
+    <body>
+
+        <section id="tabs">
+            <button id="settingsBtn">Settings</button>
+            <button id="infoBtn">Info</button>
+        </section>
+
+        <section id="settings">
+
+            <section id="menuTimer">
+                <h2>Menu Timer</h2>
+
+                <form id="menuTimerColour">
+                    <h3>Colour</h3>
+                    <input type="color" name="normalTimeColour" id="normalTimeColour">
+                    <label for="normalColour">Normal</label>
+
+                    <input type="color" name="lowTimeColour" id="lowTimeColour">
+                    <label for="lowTimeColour">Low Time</label>
+
+                    <button id="applyColourBtn">Apply</button>
+                    <button id="resetColourBtn">Reset</button>
+                </form>
+
+            </section>
+
+        </section>
+
+        <section id="info" style="display: none;">
+            <h2>Info</h2>
+        </section>
+
+        <script src="./popup.js" type="module"></script>
+
+    </body>
+
+</html>

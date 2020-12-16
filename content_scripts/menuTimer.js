@@ -13,7 +13,9 @@ setInterval(()=>{
     //update menuTimer
     let time = document.getElementById('timerVal').innerHTML;
     if (!time || time == "00:00") time = document.getElementById('endTimer').innerHTML;
-    menuTimer.setAttribute('style', `color: ${parseInt(time) < 1 ? 'orange' : 'cyan'}`);
+    chrome.storage.sync.get(['normalTimeColour', 'lowTimeColour'], result=>{
+        menuTimer.setAttribute('style', `color: ${parseInt(time) < 1 ? result.lowTimeColour : result.normalTimeColour}`);
+    });
     document.getElementById('menuTimer').innerHTML = time;
     
 }, 500);

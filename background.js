@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function(){
-    chrome.storage.sync.set({'normalTimeColour': null, 'lowTimeColour': null}, function() {
-        console.log('menuTimer colours set to null');
+    chrome.storage.sync.set({'normalTimeColour': "#00FFFF", 'lowTimeColour': "#FFA500"}, function() {
+        console.log('Settings reset to default');
     });
 })
 
