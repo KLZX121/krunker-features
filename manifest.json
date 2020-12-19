@@ -7,7 +7,7 @@
     {
       "matches": ["https://krunker.io/*"],
       "exclude_matches":["https://krunker.io/social.html"],
-      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js"]
+      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js", "./content_scripts/winningTeam.js"]
     }
   ],
   "icons": {
