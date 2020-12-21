@@ -1,33 +1,65 @@
 'use strict';
-const mutationOptions = { childList: true};
-//ffa
-function ffaWinningDisplay(){
+//variable declarations
+const childListMutation = { childList: true },
+    teamModeMutation = { subtree: true, attributeFilter: ['class'], childList: true };
+let observeLeaderboard, observeTeamScores;
 
-    const newScoreboard = document.getElementById('leaderContainerD'),
-        oldScoreboard = document.getElementById('leaderContainer');
-    const observeLeaderboard = new MutationObserver(mutations => {
+const mapInfo = document.getElementById('mapInfo');
 
-        for(const mutation of mutations) {
+const observeMapInfo = new MutationObserver(() => {
+    winningDisplay();
+});
 
-            console.log(mutation.addedNodes[0].childNodes[1].className) //newLeaderNameM or leaderNameM
-        };
-    });
+observeMapInfo.observe(mapInfo, childListMutation);
 
-    observeLeaderboard.observe(newScoreboard, mutationOptions);
-    observeLeaderboard.observe(oldScoreboard, mutationOptions);
-}
+function winningDisplay(){
 
-//team
-function teamWinningDisplay(){
+    if (observeLeaderboard){
+        observeLeaderboard.disconnect();
+    }
+    if (observeTeamScores){
+        observeTeamScores.disconnect();
+    }
 
-    const teamScores = document.getElementById('teamScores')
-    const observeTeamScores = new MutationObserver(mutations => {
+    if (mapInfo.innerHTML.includes('ffa')){        
 
-        for (const mutation of mutations) {
-            let allyScore = parseInt(document.getElementsByClassName('tScoreC you')[0].nextElementSibling.innerHTML);
-            let enemyScore = parseInt(document.querySelector('.tScoreC:not(.you)').nextElementSibling.innerHTML);
-            console.log(allyScore);
-            console.log(enemyScore);
+        const newScoreboard = document.getElementById('leaderContainerD'),
+            oldScoreboard = document.getElementById('leaderContainer');
+        observeLeaderboard = new MutationObserver(mutations => {
+            console.log('ffa');
+            console.log(mutations[0].addedNodes[0].childNodes[1].className); //newLeaderNameM or leaderNameM and dont use mutations
+        });
+
+        observeLeaderboard.observe(newScoreboard, childListMutation);
+        observeLeaderboard.observe(oldScoreboard, childListMutation);
+
+    } else {
+
+        const teamScores = document.getElementById('teamScores');
+        observeTeamScores = new MutationObserver(mutations => {
+            console.log(mutations[0]);
+            if (mutations[0].target.id === 'teamScores' || mutations[0].target.className === 'tScoreM') return;
+
+            let allyScore, enemyScore;
+
+            if (mapInfo.innerHTML.includes('ctf')){
+                //optimise ctf if performance issues
+                allyScore = parseInt(document.getElementsByClassName('tScoreF you')[0].previousElementSibling.innerHTML);
+                enemyScore = parseInt(document.querySelector('.tScoreF:not(.you)').previousElementSibling.innerHTML);
+                console.log('ctf');
+                console.log(allyScore);
+                console.log(enemyScore);
+
+            } else {
+
+                allyScore = parseInt(document.getElementsByClassName('tScoreC you')[0].nextElementSibling.innerHTML);
+                enemyScore = parseInt(document.querySelector('.tScoreC:not(.you)').nextElementSibling.innerHTML);
+                console.log('team')
+                console.log(allyScore);
+                console.log(enemyScore);
+
+            }
+
             if (allyScore > enemyScore){
                 //winning
             } else if (allyScore === enemyScore){
@@ -35,32 +67,9 @@ function teamWinningDisplay(){
             } else {
                 //losing
             }
-        }
-    })
-    observeTeamScores.observe(teamScores, {subtree: true, attributeFilter: ['class'], childList: true});
 
-}
+        })
+        observeTeamScores.observe(teamScores, teamModeMutation);
 
-//ctf
-function ctfWinningDisplay(){
-
-}
-
-//mode
-const mapInfo = document.getElementById('mapInfo');
-const observeMapInfo = new MutationObserver(mutations => {
-    for (const mutation of mutations) {
-        if (mutation.addedNodes[0].data.includes('ffa')){
-            ffaWinningDisplay();
-        } else if (mutation.addedNodes[0].data.includes('ctf')){
-
-        } else {
-            teamWinningDisplay();
-        }
     }
-})
-observeMapInfo.observe(mapInfo, mutationOptions);
-
-/*if (observeLeaderboard) {
-    observeLeaderboard.disconnect()
-}*/
+}
