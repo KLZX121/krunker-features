@@ -20,21 +20,21 @@ let lowTimeColour = document.getElementById('lowTimeColour');
 
 //Set colour pickers to display appropriate colour
 
-chrome.storage.sync.get(['normalTimeColour', 'lowTimeColour'], result => {
-    normalTimeColour.setAttribute('value', result.normalTimeColour);
-    lowTimeColour.setAttribute('value', result.lowTimeColour);
+chrome.storage.sync.get('menuTimerColours', result => {
+    normalTimeColour.setAttribute('value', result.menuTimerColours[0]);
+    lowTimeColour.setAttribute('value', result.menuTimerColours[1]);
 })
 
 //Apply colour changes
 let applyColourBtn = document.getElementById('applyColourBtn');
 applyColourBtn.onclick = function applyColour(){
-    chrome.storage.sync.set({'normalTimeColour':normalTimeColour.value, "lowTimeColour": lowTimeColour.value});
+    chrome.storage.sync.set({menuTimerColours: [normalTimeColour.value, lowTimeColour.value]});
 };
 
 //Reset colour to default
 let resetColourBtn = document.getElementById('resetColourBtn');
 resetColourBtn.onclick = function resetColour(){
-    chrome.storage.sync.set({'normalTimeColour':"#00FFFF", "lowTimeColour": "#FFA500"});
+    chrome.storage.sync.set({menuTimerColours: ["#00FFFF", "#FFA500"]});
 };
 
 //Find New Game==================================
@@ -44,7 +44,7 @@ let hotkeyDisplay = document.getElementById('hotkeyDisplay');
 let hotkey;
 
 //Display hotkey
-chrome.storage.sync.get(['newGameHotkey'], result => {
+chrome.storage.sync.get('newGameHotkey', result => {
     hotkey = result.newGameHotkey;
     hotkeyDisplay.innerHTML = hotkey;
 });
