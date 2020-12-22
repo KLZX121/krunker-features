@@ -8,7 +8,7 @@ const mapInfo = document.getElementById('mapInfo');
 //create display
 const winningDisplay = document.createElement('span');
 winningDisplay.setAttribute('id', 'winningDisplay');
-winningDisplay.setAttribute('style', 'position: relative; font-size: xx-large; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
+winningDisplay.setAttribute('style', 'position: fixed; font-size: xx-large; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
 document.getElementById('gameUI').prepend(winningDisplay);
 
 //refresh display every game

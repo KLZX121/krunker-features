@@ -17,7 +17,6 @@ setInterval(()=>{
     if (!document.getElementById('menuTimer')) {
         document.getElementById('instructions').appendChild(menuTimer);
     }
-    console.log(time);
     if (!time || time == "00:00") {
         time = document.getElementById('endTimer').innerHTML;
     }
