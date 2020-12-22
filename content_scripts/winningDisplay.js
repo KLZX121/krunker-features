@@ -60,7 +60,6 @@ function winningDisplayUpdate(){
 
         observeTeamScores = new MutationObserver(mutations => {
 
-            console.log(mutations[0]);
             if (mutations[0].target.id === 'teamScores' || mutations[0].target.className === 'tScoreM' || !document.getElementsByClassName('you').length) return;
 
             let allyScore, enemyScore;
@@ -69,15 +68,9 @@ function winningDisplayUpdate(){
                 //optimise ctf if performance issues
                 allyScore = parseInt(document.getElementsByClassName('tScoreF you')[0].previousElementSibling.innerHTML);
                 enemyScore = parseInt(document.querySelector('.tScoreF:not(.you)').previousElementSibling.innerHTML);
-                console.log('ctf');
-                console.log(allyScore);
-                console.log(enemyScore);
             } else {
                 allyScore = parseInt(document.getElementsByClassName('tScoreC you')[0].nextElementSibling.innerHTML);
                 enemyScore = parseInt(document.querySelector('.tScoreC:not(.you)').nextElementSibling.innerHTML);
-                console.log('team');
-                console.log(allyScore);
-                console.log(enemyScore);
             };
 
             if (allyScore > enemyScore){
