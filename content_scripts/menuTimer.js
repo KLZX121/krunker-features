@@ -1,5 +1,5 @@
 'use strict';
-document.getElementById('spectButton').setAttribute('style', 'top: 20px;left: 550px');
+document.getElementById('spectButton').setAttribute('style', 'top: 40%;');
 
 const menuTimer = document.createElement("div");
 menuTimer.setAttribute('id', 'menuTimer');
