@@ -3,19 +3,18 @@ document.getElementById('spectButton').setAttribute('style', 'top: 40%;');
 
 const menuTimer = document.createElement("div");
 menuTimer.setAttribute('id', 'menuTimer');
-menuTimer.setAttribute('style', "margin-bottom: 50px");
 
-setInterval(()=>{
+const timerVal = document.getElementById('timerVal');
+const observeTime = new MutationObserver(()=>{
 
-    //create element menuTimer
+    let time = timerVal.innerHTML;
     if (!document.getElementById('menuTimer')) document.getElementById('instructions').appendChild(menuTimer);
-    
-    //update menuTimer
-    let time = document.getElementById('timerVal').innerHTML;
+
     if (!time || time == "00:00") time = document.getElementById('endTimer').innerHTML;
     chrome.storage.sync.get('menuTimerColours', result => {
-        menuTimer.setAttribute('style', `color: ${parseInt(time) < 1 ? result.menuTimerColours[1] : result.menuTimerColours[0]}`);
+        menuTimer.style.color = parseInt(time) < 1 ? result.menuTimerColours[1] : result.menuTimerColours[0];
     });
     document.getElementById('menuTimer').innerHTML = time;
-    
-}, 500);
+
+})
+observeTime.observe(timerVal, {childList: true});
