@@ -3,31 +3,52 @@
 const childListMutation = { childList: true },
     teamModeMutation = { subtree: true, attributeFilter: ['class'], childList: true };
 let observeLeaderboard, observeTeamScores;
-
 const mapInfo = document.getElementById('mapInfo');
 
-const observeMapInfo = new MutationObserver(() => {
-    winningDisplay();
-});
+//create display
+const winningDisplay = document.createElement('span');
+winningDisplay.setAttribute('id', 'winningDisplay');
+winningDisplay.setAttribute('style', 'position: relative; font-size: xx-large; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
+document.getElementById('gameUI').prepend(winningDisplay);
 
+//refresh display every game
+const observeMapInfo = new MutationObserver(() => {
+    winningDisplayUpdate();
+    winningDisplay.innerHTML = '';
+});
 observeMapInfo.observe(mapInfo, childListMutation);
 
-function winningDisplay(){
+//set display
+function setDisplay(status) {
+    winningDisplay.innerHTML = status;
+    chrome.storage.sync.get('winningDisplay', result => {
+        const colours = result.winningDisplay.colours
+        winningDisplay.style.color = `${status === 'Winning' ? colours[0] : status === 'Losing' ? colours[1] : colours[2]}`
+        winningDisplay.style.left = `${result.winningDisplay.position[0]}`;
+        winningDisplay.style.top = `${result.winningDisplay.position[1]}`;
+    });
+};
 
+//determine winning/losing
+function winningDisplayUpdate(){
     if (observeLeaderboard){
         observeLeaderboard.disconnect();
-    }
+    };
     if (observeTeamScores){
         observeTeamScores.disconnect();
-    }
-
+    };
     if (mapInfo.innerHTML.includes('ffa')){        
 
         const newScoreboard = document.getElementById('leaderContainerD'),
             oldScoreboard = document.getElementById('leaderContainer');
+            
         observeLeaderboard = new MutationObserver(mutations => {
-            console.log('ffa');
-            console.log(mutations[0].addedNodes[0].childNodes[1].className); //newLeaderNameM or leaderNameM and dont use mutations
+
+            if(['newLeaderNameM', 'leaderNameM'].includes(mutations[0].addedNodes[0].childNodes[1].className)){
+                setDisplay('Winning');
+            } else {
+                setDisplay('Losing');
+            };
         });
 
         observeLeaderboard.observe(newScoreboard, childListMutation);
@@ -36,9 +57,11 @@ function winningDisplay(){
     } else {
 
         const teamScores = document.getElementById('teamScores');
+
         observeTeamScores = new MutationObserver(mutations => {
+
             console.log(mutations[0]);
-            if (mutations[0].target.id === 'teamScores' || mutations[0].target.className === 'tScoreM') return;
+            if (mutations[0].target.id === 'teamScores' || mutations[0].target.className === 'tScoreM' || !document.getElementsByClassName('you').length) return;
 
             let allyScore, enemyScore;
 
@@ -49,27 +72,23 @@ function winningDisplay(){
                 console.log('ctf');
                 console.log(allyScore);
                 console.log(enemyScore);
-
             } else {
-
                 allyScore = parseInt(document.getElementsByClassName('tScoreC you')[0].nextElementSibling.innerHTML);
                 enemyScore = parseInt(document.querySelector('.tScoreC:not(.you)').nextElementSibling.innerHTML);
-                console.log('team')
+                console.log('team');
                 console.log(allyScore);
                 console.log(enemyScore);
-
-            }
+            };
 
             if (allyScore > enemyScore){
-                //winning
+                setDisplay('Winning');
             } else if (allyScore === enemyScore){
-                //drawing
+                setDisplay('Draw');
             } else {
-                //losing
-            }
+                setDisplay('Losing');
+            };
 
-        })
+        });
         observeTeamScores.observe(teamScores, teamModeMutation);
-
-    }
-}
+    };
+};
