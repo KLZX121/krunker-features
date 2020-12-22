@@ -2,7 +2,7 @@
 //combine all into one save button
 //export/import settings
 
-//Tabs===========================================
+//======================Tabs===========================================
 
 const settings = document.getElementById('settings');
 const info = document.getElementById('info');
@@ -17,41 +17,32 @@ function switchToInfo(){
     info.style.display = 'block';
 };
 
-//Menu Timer=====================================
+//======================Menu Timer=====================================
 
+//initialise
 const normalTimeColour = document.getElementById('normalTimeColour');
 const lowTimeColour = document.getElementById('lowTimeColour');
 
-//Set colour pickers to display appropriate colour
-chrome.storage.sync.get('menuTimerColours', result => {
-    normalTimeColour.setAttribute('value', result.menuTimerColours[0]);
-    lowTimeColour.setAttribute('value', result.menuTimerColours[1]);
-})
-
-//Apply colour changes
+//apply
 const applyMenuTimerColourBtn = document.getElementById('applyMenuTimerColourBtn');
 applyMenuTimerColourBtn.onclick = function applyMenuTimerColour(){
     chrome.storage.sync.set({menuTimerColours: [normalTimeColour.value, lowTimeColour.value]});
 };
 
-//Reset colour to default
+//reset
 const resetMenuTimerColourBtn = document.getElementById('resetMenuTimerColourBtn');
 resetMenuTimerColourBtn.onclick = function resetMenuTimerColour(){
     chrome.storage.sync.set({menuTimerColours: ["#00FFFF", "#FFA500"]});
 };
 
-//Find New Game==================================
+//======================Find New Game==================================
 
+//initialise
 const recordHotkeyBtn = document.getElementById('recordHotkeyBtn'),
     hotkeyDisplay = document.getElementById('hotkeyDisplay');
 let hotkey;
 
-//Display hotkey
-chrome.storage.sync.get('newGameHotkey', result => {
-    hotkey = result.newGameHotkey;
-    hotkeyDisplay.innerHTML = hotkey;
-});
-
+//apply / reset
 recordHotkeyBtn.onclick = function recordHotkey(){
     if (recordHotkeyBtn.innerHTML === 'Cancel'){
         recordHotkeyBtn.innerHTML = 'Change';
@@ -66,36 +57,16 @@ recordHotkeyBtn.onclick = function recordHotkey(){
     }, {once: true});
 };
 
-//Winning Display================================
+//======================Winning Display================================
 
-//Colours
-
+//initialise
 const winningColour = document.getElementById('winningColour'),
     losingColour = document.getElementById('losingColour'),
-    drawColour = document.getElementById('drawColour');
-
-//set colours to display
-chrome.storage.sync.get('winningDisplay', result => {
-    const colours = result.winningDisplay.colours;
-    winningColour.setAttribute('value', colours[0]);
-    losingColour.setAttribute('value', colours[1]);
-    drawColour.setAttribute('value', colours[2]);
-})
-
-//Positions
-
-const winDispHorPosSlider = document.getElementById('winDispHorPosSlider'),
+    drawColour = document.getElementById('drawColour'),
+    winDispHorPosSlider = document.getElementById('winDispHorPosSlider'),
     winDispHorPosNumber = document.getElementById('winDispHorPosNumber'),
     winDispVerPosSlider = document.getElementById('winDispVerPosSlider'),
     winDispVerPosNumber = document.getElementById('winDispVerPosNumber');
-
-chrome.storage.sync.get('winningDisplay', results => {
-    const position = results.winningDisplay.position;
-    winDispHorPosSlider.value = parseInt(position[0]);
-    winDispHorPosNumber.value = parseInt(position[0]);
-    winDispVerPosSlider.value = parseInt(position[1]);
-    winDispVerPosNumber.value = parseInt(position[1]);
-});
 
 winDispHorPosSlider.addEventListener('input', event => {
     winDispHorPosNumber.value = event.target.value;
@@ -110,7 +81,7 @@ winDispVerPosNumber.addEventListener('input', event => {
     winDispVerPosSlider.value = event.target.value;
 });
 
-//apply winning display changes
+//apply
 const applyWinningDisplayBtn = document.getElementById('applyWinningDisplayBtn');
 applyWinningDisplayBtn.onclick = function applyWinningDisplay(){
     chrome.storage.sync.set({winningDisplay: {
@@ -119,11 +90,67 @@ applyWinningDisplayBtn.onclick = function applyWinningDisplay(){
     }});
 };
 
-//reset winning display
+//reset
 const resetWinningDisplayBtn = document.getElementById('resetWinningDisplayBtn');
 resetWinningDisplayBtn.onclick = function resetWinningDisplay(){
     chrome.storage.sync.set({winningDisplay: {
         colours: ['#5699eb','#eb5656', '#909497'],
-        position: ['0%','85%']
+        position: ['40%','80%']
     }});
 };
+
+//======================KDR Display====================================
+
+//initialise
+const aboveTargetColour = document.getElementById('aboveTargetColour'),
+    belowTargetColour = document.getElementById('belowTargetColour'),
+    kdrDispHorPosSlider = document.getElementById('kdrDispHorPosSlider'),
+    kdrDispHorPosNumber = document.getElementById('kdrDispHorPosNumber'),
+    kdrDispVerPosSlider = document.getElementById('kdrDispVerPosSlider'),
+    kdrDispVerPosNumber = document.getElementById('kdrDispVerPosNumber'),
+    targetKdr = document.getElementById('targetKdr');
+
+//apply
+const applyKdrDisplayBtn = document.getElementById('applyKdrDisplayBtn');
+applyKdrDisplayBtn.onclick = function applyKdrDisplay(){
+    chrome.storage.sync.set({kdrDisplay: {
+        colours: [aboveTargetColour.value, belowTargetColour.value],
+        position: [`${kdrDispHorPosNumber.value}%`, `${kdrDispVerPosSlider.value}%`],
+        target: targetKdr.value
+    }});
+};
+
+//reset
+const resetKdrDisplayBtn = document.getElementById('resetKdrDisplayBtn');
+resetKdrDisplayBtn.onclick = function resetKdrDisplay(){
+    chrome.storage.sync.set({kdrDisplay: {
+        colours: ['#8BC34A', '#E74C3C'],
+        position: ['60%', '80%'],
+        target: 0
+    }});
+};
+
+//======================SET ALL VALUES=================================
+chrome.storage.sync.get(null, results=>{
+    //winningDisplay
+    winDispHorPosSlider.value = parseInt(results.winningDisplay.position[0]);
+    winDispHorPosNumber.value = parseInt(results.winningDisplay.position[0]);
+    winDispVerPosSlider.value = parseInt(results.winningDisplay.position[1]);
+    winDispVerPosNumber.value = parseInt(results.winningDisplay.position[1]);
+    winningColour.value = results.winningDisplay.colours[0];
+    losingColour.value = results.winningDisplay.colours[1];
+    drawColour.value =  results.winningDisplay.colours[2];
+    //newGame hotkey
+    hotkeyDisplay.innerHTML = results.newGameHotkey;
+    //menuTimer
+    normalTimeColour.value = results.menuTimerColours[0];
+    lowTimeColour.value = results.menuTimerColours[1];
+    //kdrDisplay
+    kdrDispHorPosSlider.value = parseInt(results.kdrDisplay.position[0]);
+    kdrDispHorPosNumber.value = parseInt(results.kdrDisplay.position[0]);
+    kdrDispVerPosSlider.value = parseInt(results.kdrDisplay.position[1]);
+    kdrDispVerPosNumber.value = parseInt(results.kdrDisplay.position[1]);
+    aboveTargetColour.value =  results.kdrDisplay.colours[0];
+    belowTargetColour.value = results.kdrDisplay.colours[1];
+    targetKdr.value = results.kdrDisplay.target;
+})
