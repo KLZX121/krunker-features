@@ -110,6 +110,20 @@ const aboveTargetColour = document.getElementById('aboveTargetColour'),
     kdrDispVerPosNumber = document.getElementById('kdrDispVerPosNumber'),
     targetKdr = document.getElementById('targetKdr');
 
+//sync sliders and numbers
+kdrDispHorPosSlider.addEventListener('input', event => {
+    kdrDispHorPosNumber.value = event.target.value;
+});
+kdrDispHorPosNumber.addEventListener('input', event => {
+    kdrDispHorPosSlider.value = event.target.value;
+});
+kdrDispVerPosSlider.addEventListener('input', event => {
+    kdrDispVerPosNumber.value = event.target.value;
+});
+kdrDispVerPosNumber.addEventListener('input', event => {
+    kdrDispVerPosSlider.value = event.target.value;
+});
+
 //apply
 const applyKdrDisplayBtn = document.getElementById('applyKdrDisplayBtn');
 applyKdrDisplayBtn.onclick = function applyKdrDisplay(){
