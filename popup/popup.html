@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./popup.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <header>
+        <h1 style="text-align: center;">Krunker Features</h1>
+    </header>
+
+    <body>
+
+        <section id="tabs">
+            <button id="settingsBtn">Settings</button>
+            <button id="infoBtn">Info</button>
+        </section>
+
+        <section id="settings">
+
+            <section id="menuTimer">
+                <h3>Menu Timer</h3>
+
+                <form id="menuTimerColour">
+                    <label for="normalColour">Normal Colour</label>
+                    <input type="color" name="normalTimeColour" id="normalTimeColour">
+
+                    <label for="lowTimeColour">Low Time Colour</label>
+                    <input type="color" name="lowTimeColour" id="lowTimeColour">
+
+                    <button id="applyMenuTimerColourBtn">Apply</button>
+                    <button id="resetMenuTimerColourBtn">Reset</button>
+                </form>
+
+            </section>
+
+            <section id="findNewGame">
+                <h3>Find New Game</h3>
+
+                <section id="findNewGameHotkey">
+                    <div>Hotkey</div>
+                    <p id="hotkeyDisplay"></p>
+                    <button id="recordHotkeyBtn">Change</button>
+                </section>
+
+            </section>
+
+            <section id="winningDisplay">
+                <h3>Winning Display</h3>
+
+                <form id="winningDisplayColour">
+                    <label for="winningColour">Winning Colour</label>
+                    <input type="color" name="winningColour" id="winningColour">
+
+                    <label for="losingColour">Losing Colour</label>
+                    <input type="color" name="losingColour" id="losingColour">
+
+                    <label for="drawColour">Draw Colour</label>
+                    <input type="color" name="drawColour" id="drawColour">
+
+                    <button id="applyWinningDisplayColourBtn">Apply</button>
+                    <button id="resetWinningDisplayColourBtn">Reset</button>
+                </form>
+            </section>
+
+        </section>
+
+        <section id="info" style="display: none;">
+            <h3>v2.0</h3>
+            <ul>
+                <li>Added this UI! - customise the menu timer colours and set a custom hotkey</li>
+            </ul>
+
+            <h3>Links</h3>
+            <h4><a href="https://github.com/KLZX121/krunker-features" target="_blank">GitHub</a></h4>
+            <p>Check documentation and new releases</p>
+
+            <h4><a href="https://discord.com/invite/CjdmDQn" target="_blank">Discord</a></h4>
+            <p>Get live updates (This is my Krunker clan server - get the @Extension role when you join)</p>
+        </section>
+
+        <script src="./popup.js" type="module"></script>
+    </body>
+</html>
