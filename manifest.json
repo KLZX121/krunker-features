@@ -7,7 +7,12 @@
     {
       "matches": ["https://krunker.io/*"],
       "exclude_matches":["https://krunker.io/social.html"],
-      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js", "./content_scripts/winningDisplay.js"]
+      "js": [
+        "./content_scripts/menuTimer.js", 
+        "./content_scripts/findNewGame.js", 
+        "./content_scripts/winningDisplay.js",
+        "./content_scripts/kdrDisplay.js"
+      ]
     }
   ],
   "icons": {
