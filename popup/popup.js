@@ -68,6 +68,8 @@ recordHotkeyBtn.onclick = function recordHotkey(){
 
 //Winning Display================================
 
+//Colours
+
 const winningColour = document.getElementById('winningColour'),
     losingColour = document.getElementById('losingColour'),
     drawColour = document.getElementById('drawColour');
@@ -80,14 +82,48 @@ chrome.storage.sync.get('winningDisplay', result => {
     drawColour.setAttribute('value', colours[2]);
 })
 
-//apply colours
-const applyWinningDisplayColourBtn = document.getElementById('applyWinningDisplayColourBtn');
-applyWinningDisplayColourBtn.onclick = function applyWinningDisplayColour(){
-    chrome.storage.sync.set({winningDisplay: {colours: [winningColour.value, losingColour.value, drawColour.value]} });
+//Positions
+
+const winDispHorPosSlider = document.getElementById('winDispHorPosSlider'),
+    winDispHorPosNumber = document.getElementById('winDispHorPosNumber'),
+    winDispVerPosSlider = document.getElementById('winDispVerPosSlider'),
+    winDispVerPosNumber = document.getElementById('winDispVerPosNumber');
+
+chrome.storage.sync.get('winningDisplay', results => {
+    const position = results.winningDisplay.position;
+    winDispHorPosSlider.value = parseInt(position[0]);
+    winDispHorPosNumber.value = parseInt(position[0]);
+    winDispVerPosSlider.value = parseInt(position[1]);
+    winDispVerPosNumber.value = parseInt(position[1]);
+});
+
+winDispHorPosSlider.addEventListener('input', event => {
+    winDispHorPosNumber.value = event.target.value;
+});
+winDispHorPosNumber.addEventListener('input', event => {
+    winDispHorPosSlider.value = event.target.value;
+});
+winDispVerPosSlider.addEventListener('input', event => {
+    winDispVerPosNumber.value = event.target.value;
+});
+winDispVerPosNumber.addEventListener('input', event => {
+    winDispVerPosSlider.value = event.target.value;
+});
+
+//apply winning display changes
+const applyWinningDisplayBtn = document.getElementById('applyWinningDisplayBtn');
+applyWinningDisplayBtn.onclick = function applyWinningDisplay(){
+    chrome.storage.sync.set({winningDisplay: {
+        colours: [winningColour.value, losingColour.value, drawColour.value],
+        position: [`${winDispHorPosNumber.value}%`, `${winDispVerPosSlider.value}%`]
+    }});
 };
 
-//Reset colours
-const resetWinningDisplayColourBtn = document.getElementById('resetWinningDisplayColourBtn');
-resetWinningDisplayColourBtn.onclick = function resetWinningDisplayColour(){
-    chrome.storage.sync.set({winningDisplay: {colours: ['#5699eb','#eb5656', '#909497']}});
+//reset winning display
+const resetWinningDisplayBtn = document.getElementById('resetWinningDisplayBtn');
+resetWinningDisplayBtn.onclick = function resetWinningDisplay(){
+    chrome.storage.sync.set({winningDisplay: {
+        colours: ['#5699eb','#eb5656', '#909497'],
+        position: ['0%','85%']
+    }});
 };
