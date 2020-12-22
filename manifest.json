@@ -7,7 +7,7 @@
     {
       "matches": ["https://krunker.io/*"],
       "exclude_matches":["https://krunker.io/social.html"],
-      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js", "./content_scripts/winningTeam.js"]
+      "js": ["./content_scripts/menuTimer.js", "./content_scripts/findNewGame.js", "./content_scripts/winningDisplay.js"]
     }
   ],
   "icons": {
@@ -16,7 +16,7 @@
     "128": "imgs/icon_128.png" 
   },
   "browser_action":{
-    "default_popup": "popup.html"
+    "default_popup": "./popup/popup.html"
   },
   "permissions": [
     "storage"

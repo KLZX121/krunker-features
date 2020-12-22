@@ -1,9 +1,12 @@
-chrome.runtime.onInstalled.addListener(function(){
+chrome.runtime.onInstalled.addListener(()=>{
     chrome.storage.sync.set({
+        
         menuTimerColours: ["#00FFFF","#FFA500"],
-        newGameHotkey:'F4'
-    }, () => {
-        console.log('Settings set to default values');
+        newGameHotkey:'F4',
+        winningDisplay: {
+            colours: ['#5699eb','#eb5656', '#909497'],
+            position: ['0%','85%']
+        }
     });
 });
 
