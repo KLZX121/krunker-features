@@ -9,7 +9,7 @@ chrome.runtime.onInstalled.addListener(()=>{
         },
         kdrDisplay: {
             colours: ['#8BC34A', '#E74C3C'], //over min, under min
-            position: ['60%', '80%'], //left, top
+            position: ['55%', '80%'], //left, top
             target: 0
         }
     });

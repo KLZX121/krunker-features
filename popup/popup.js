@@ -139,7 +139,7 @@ const resetKdrDisplayBtn = document.getElementById('resetKdrDisplayBtn');
 resetKdrDisplayBtn.onclick = function resetKdrDisplay(){
     chrome.storage.sync.set({kdrDisplay: {
         colours: ['#8BC34A', '#E74C3C'],
-        position: ['60%', '80%'],
+        position: ['55%', '80%'],
         target: 0
     }});
 };
