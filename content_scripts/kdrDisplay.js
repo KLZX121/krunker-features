@@ -27,7 +27,7 @@ const observeKdr = new MutationObserver(()=>{
     }
     if (deathsVal.innerHTML === '0'){
         kdrDisplay.innerHTML = `+${killsVal.innerHTML}`;
-        updateKdrDisplay();
+        updateKdrDisplay(true);
         return;
     }
     kdrDisplay.innerHTML = parseInt(killsVal.innerHTML) / parseInt(deathsVal.innerHTML);
