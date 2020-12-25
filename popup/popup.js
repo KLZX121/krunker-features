@@ -2,6 +2,25 @@
 //export/import settings
 //reference input events in html
 
+//======================Import Export Settings=========================
+const importSettings = document.getElementById('importSettings'),
+    exportSettings = document.getElementById('exportSettings'),
+    settingsText = document.getElementById('settingsText');
+
+importSettings.onclick = () => {
+    try {
+        let settings = JSON.parse(settingsText.value);
+        chrome.storage.sync.set(settings);
+    } catch (error) {
+        alert(error);
+    }
+}
+exportSettings.onclick = () => {
+    chrome.storage.sync.get(null, results => {
+        settingsText.value = JSON.stringify(results);
+    })
+}
+
 //======================Tabs===========================================
 
 const settings = document.getElementById('settings');
