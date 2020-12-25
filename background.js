@@ -11,7 +11,8 @@ chrome.runtime.onInstalled.addListener(()=>{
             colours: ['#8BC34A', '#E74C3C'], //over min, under min
             position: ['55%', '80%'], //left, top
             target: 0
-        }
+        },
+        toggles: [true, true, true] //menuTimer, winningDisplay, kdrDisplay
     });
 });
 

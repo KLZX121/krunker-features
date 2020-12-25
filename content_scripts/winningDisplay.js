@@ -19,6 +19,9 @@ const observeMapInfo = new MutationObserver(() => {
 observeMapInfo.observe(mapInfo, childListMutation);
 
 const observeEnd = new MutationObserver(()=>{
+    chrome.storage.sync.get('toggles', result => {
+        winningDisplay.style.display = result.toggles[1] ? 'inline' : 'none';
+    });
     if (menuTimer.innerHTML.startsWith('N')) {
         setDisplay('TEAM');
     }

@@ -1,6 +1,6 @@
-//combine setting of colours
 //combine all into one save button
 //export/import settings
+//reference input events in html
 
 //======================Tabs===========================================
 
@@ -143,28 +143,52 @@ resetKdrDisplayBtn.onclick = function resetKdrDisplay(){
         target: 0
     }});
 };
+//======================Toggles========================================
+
+const toggleMenuTimer = document.getElementById('toggleMenuTimer'),
+    toggleWinningDisplay = document.getElementById('toggleWinningDisplay'),
+    toggleKdrDisplay = document.getElementById('toggleKdrDisplay');
+
+toggleMenuTimer.onchange = toggle;
+toggleWinningDisplay.onchange = toggle;
+toggleKdrDisplay.onchange = toggle;
+
+function toggle(event){
+    chrome.storage.sync.get('toggles', results => {
+        let toggles = results.toggles;
+        toggles[event.target.id === 'toggleMenuTimer' ? 0 : event.target.id === 'toggleWinningDisplay' ? 1 : 2] = event.target.checked ? true : false;
+        chrome.storage.sync.set({toggles: toggles});
+    });
+}
 
 //======================SET ALL VALUES=================================
 chrome.storage.sync.get(null, results=>{
+    //toggles
+    const toggles = results.toggles;
+    toggleMenuTimer.checked = toggles[0];
+    toggleWinningDisplay.checked = toggles[1];
+    toggleKdrDisplay.checked = toggles[2];
     //winningDisplay
-    winDispHorPosSlider.value = parseInt(results.winningDisplay.position[0]);
-    winDispHorPosNumber.value = parseInt(results.winningDisplay.position[0]);
-    winDispVerPosSlider.value = parseInt(results.winningDisplay.position[1]);
-    winDispVerPosNumber.value = parseInt(results.winningDisplay.position[1]);
-    winningColour.value = results.winningDisplay.colours[0];
-    losingColour.value = results.winningDisplay.colours[1];
-    drawColour.value =  results.winningDisplay.colours[2];
+    const winningDisplay = results.winningDisplay;
+    winDispHorPosSlider.value = parseInt(winningDisplay.position[0]);
+    winDispHorPosNumber.value = parseInt(winningDisplay.position[0]);
+    winDispVerPosSlider.value = parseInt(winningDisplay.position[1]);
+    winDispVerPosNumber.value = parseInt(winningDisplay.position[1]);
+    winningColour.value = winningDisplay.colours[0];
+    losingColour.value = winningDisplay.colours[1];
+    drawColour.value =  winningDisplay.colours[2];
     //newGame hotkey
     hotkeyDisplay.innerHTML = results.newGameHotkey;
     //menuTimer
     normalTimeColour.value = results.menuTimerColours[0];
     lowTimeColour.value = results.menuTimerColours[1];
     //kdrDisplay
-    kdrDispHorPosSlider.value = parseInt(results.kdrDisplay.position[0]);
-    kdrDispHorPosNumber.value = parseInt(results.kdrDisplay.position[0]);
-    kdrDispVerPosSlider.value = parseInt(results.kdrDisplay.position[1]);
-    kdrDispVerPosNumber.value = parseInt(results.kdrDisplay.position[1]);
-    aboveTargetColour.value =  results.kdrDisplay.colours[0];
-    belowTargetColour.value = results.kdrDisplay.colours[1];
-    targetKdr.value = results.kdrDisplay.target;
+    const kdrDisplay = results.kdrDisplay;
+    kdrDispHorPosSlider.value = parseInt(kdrDisplay.position[0]);
+    kdrDispHorPosNumber.value = parseInt(kdrDisplay.position[0]);
+    kdrDispVerPosSlider.value = parseInt(kdrDisplay.position[1]);
+    kdrDispVerPosNumber.value = parseInt(kdrDisplay.position[1]);
+    aboveTargetColour.value =  kdrDisplay.colours[0];
+    belowTargetColour.value = kdrDisplay.colours[1];
+    targetKdr.value = kdrDisplay.target;
 })

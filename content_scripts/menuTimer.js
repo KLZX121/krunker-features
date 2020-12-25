@@ -12,7 +12,9 @@ menuTimer.setAttribute('id', 'menuTimer');
 
 const timerVal = document.getElementById('timerVal');
 setInterval(()=>{
-
+    chrome.storage.sync.get('toggles', result => {
+        menuTimer.setAttribute('style', `display: ${result.toggles[0] ? 'block' : 'none'};`);
+    });
     let time = timerVal.innerHTML;
     if (!document.getElementById('menuTimer')) {
         document.getElementById('instructions').appendChild(menuTimer);

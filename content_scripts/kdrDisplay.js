@@ -9,6 +9,9 @@ kdrDisplay.innerHTML = 'KDR';
 updateKdrDisplay(true);
 
 const observeTimer = new MutationObserver(()=>{
+    chrome.storage.sync.get('toggles', result => {
+        kdrDisplay.style.display = result.toggles[2] ? 'inline' : 'none';
+    });
     if (menuTimer.innerHTML.startsWith('N')) {
         kdrDisplay.innerHTML = 'KDR';
         updateKdrDisplay(true);
