@@ -1,24 +1,52 @@
+//DEFAULT SETTINGS REFERENCES
+//background.js
+//reset buttons for each feature
+//reset all settings
+
 //combine all into one save button
 //export/import settings
 //reference input events in html
 
-//======================Import Export Settings=========================
+//======================Settings=======================================
 const importSettings = document.getElementById('importSettings'),
     exportSettings = document.getElementById('exportSettings'),
-    settingsText = document.getElementById('settingsText');
+    settingsText = document.getElementById('settingsText'),
+    resetAllSettings = document.getElementById('resetAllSettings');
 
 importSettings.onclick = () => {
     try {
         let settings = JSON.parse(settingsText.value);
         chrome.storage.sync.set(settings);
+        setAllValues();
+        settingsText.value = null;
     } catch (error) {
         alert(error);
-    }
+    };
 }
 exportSettings.onclick = () => {
     chrome.storage.sync.get(null, results => {
         settingsText.value = JSON.stringify(results);
     })
+}
+resetAllSettings.onclick = () => {
+    if (window.confirm('Reset ALL SETTINGS to default?')) {
+        chrome.storage.sync.clear();
+        chrome.storage.sync.set({
+        
+            menuTimerColours: ["#00FFFF","#FFA500"],
+            newGameHotkey:'F4',
+            winningDisplay: {
+                colours: ['#5699eb','#eb5656', '#909497'], //winning, losing, draw
+                position: ['40%','80%'] //left, top
+            },
+            kdrDisplay: {
+                colours: ['#8BC34A', '#E74C3C'], //over min, under min
+                position: ['55%', '80%'], //left, top
+                target: 0
+            },
+            toggles: [true, true, true] //menuTimer, winningDisplay, kdrDisplay
+        }, setAllValues)
+    }
 }
 
 //======================Tabs===========================================
@@ -181,33 +209,36 @@ function toggle(event){
 }
 
 //======================SET ALL VALUES=================================
-chrome.storage.sync.get(null, results=>{
-    //toggles
-    const toggles = results.toggles;
-    toggleMenuTimer.checked = toggles[0];
-    toggleWinningDisplay.checked = toggles[1];
-    toggleKdrDisplay.checked = toggles[2];
-    //winningDisplay
-    const winningDisplay = results.winningDisplay;
-    winDispHorPosSlider.value = parseInt(winningDisplay.position[0]);
-    winDispHorPosNumber.value = parseInt(winningDisplay.position[0]);
-    winDispVerPosSlider.value = parseInt(winningDisplay.position[1]);
-    winDispVerPosNumber.value = parseInt(winningDisplay.position[1]);
-    winningColour.value = winningDisplay.colours[0];
-    losingColour.value = winningDisplay.colours[1];
-    drawColour.value =  winningDisplay.colours[2];
-    //newGame hotkey
-    hotkeyDisplay.innerHTML = results.newGameHotkey;
-    //menuTimer
-    normalTimeColour.value = results.menuTimerColours[0];
-    lowTimeColour.value = results.menuTimerColours[1];
-    //kdrDisplay
-    const kdrDisplay = results.kdrDisplay;
-    kdrDispHorPosSlider.value = parseInt(kdrDisplay.position[0]);
-    kdrDispHorPosNumber.value = parseInt(kdrDisplay.position[0]);
-    kdrDispVerPosSlider.value = parseInt(kdrDisplay.position[1]);
-    kdrDispVerPosNumber.value = parseInt(kdrDisplay.position[1]);
-    aboveTargetColour.value =  kdrDisplay.colours[0];
-    belowTargetColour.value = kdrDisplay.colours[1];
-    targetKdr.value = kdrDisplay.target;
-})
+function setAllValues(){
+    chrome.storage.sync.get(null, results=>{
+        //toggles
+        const toggles = results.toggles;
+        toggleMenuTimer.checked = toggles[0];
+        toggleWinningDisplay.checked = toggles[1];
+        toggleKdrDisplay.checked = toggles[2];
+        //winningDisplay
+        const winningDisplay = results.winningDisplay;
+        winDispHorPosSlider.value = parseInt(winningDisplay.position[0]);
+        winDispHorPosNumber.value = parseInt(winningDisplay.position[0]);
+        winDispVerPosSlider.value = parseInt(winningDisplay.position[1]);
+        winDispVerPosNumber.value = parseInt(winningDisplay.position[1]);
+        winningColour.value = winningDisplay.colours[0];
+        losingColour.value = winningDisplay.colours[1];
+        drawColour.value =  winningDisplay.colours[2];
+        //newGame hotkey
+        hotkeyDisplay.innerHTML = results.newGameHotkey;
+        //menuTimer
+        normalTimeColour.value = results.menuTimerColours[0];
+        lowTimeColour.value = results.menuTimerColours[1];
+        //kdrDisplay
+        const kdrDisplay = results.kdrDisplay;
+        kdrDispHorPosSlider.value = parseInt(kdrDisplay.position[0]);
+        kdrDispHorPosNumber.value = parseInt(kdrDisplay.position[0]);
+        kdrDispVerPosSlider.value = parseInt(kdrDisplay.position[1]);
+        kdrDispVerPosNumber.value = parseInt(kdrDisplay.position[1]);
+        aboveTargetColour.value =  kdrDisplay.colours[0];
+        belowTargetColour.value = kdrDisplay.colours[1];
+        targetKdr.value = kdrDisplay.target;
+    })
+}
+setAllValues();
