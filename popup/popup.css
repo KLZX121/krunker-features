@@ -1,3 +1,41 @@
+@font-face {
+    font-family: 'Aquire';
+    src: url('../fonts/Aquire.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/OpenSans-Regular.ttf') format('truetype')
+}
+* {
+    font-family: 'Open Sans';
+}
 html {
-    width: 500px;
+    width: 400px;
+    background-image: url('../imgs/background.png');
+    background-size: 100%;
+}
+#title {
+    font-family: Aquire;
+    font-size: 2.5em;
+    text-align: center;
+    padding: 3%;
+}
+.tabButton {
+    outline: none;
+    width: 50%;
+    height: 3em;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-size: 1.2em;
+}
+#settingsBtn {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 3%;
+}
+#infoContainer {
+    display: none;
 }

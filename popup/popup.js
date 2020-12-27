@@ -51,17 +51,24 @@ resetAllSettings.onclick = () => {
 
 //======================Tabs===========================================
 
-const settings = document.getElementById('settings');
-const info = document.getElementById('info');
-document.getElementById('settingsBtn').onclick = switchToSettings;
-document.getElementById('infoBtn').onclick = switchToInfo;
+const settingsContainer = document.getElementById('settingsContainer'),
+    infoContainer = document.getElementById('infoContainer'),
+    settingsBtn = document.getElementById('settingsBtn'),
+    infoBtn = document.getElementById('infoBtn');
+    
+settingsBtn.onclick = switchToSettings;
+infoBtn.onclick = switchToInfo;
 function switchToSettings(){
-    info.style.display = 'none';
-    settings.style.display = 'block';
+    infoContainer.style.display = 'none';
+    settingsContainer.style.display = 'block';
+    infoBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    settingsBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
 };
 function switchToInfo(){
-    settings.style.display = 'none';
-    info.style.display = 'block';
+    settingsContainer.style.display = 'none';
+    infoContainer.style.display = 'block';
+    settingsBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    infoBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
 };
 
 //======================Menu Timer=====================================

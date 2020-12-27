@@ -5,28 +5,27 @@
     </head>
 
     <header>
-        <h1 style="text-align: center;">Krunker Features</h1>
+        <div id="title">Krunker Features</div>
     </header>
 
     <body>
 
         <section id="tabs">
-            <button id="settingsBtn">Settings</button>
-            <button id="infoBtn">Info</button>
+            <button id="settingsBtn" class="tabButton" >Settings</button><button id="infoBtn" class="tabButton">Info</button>
         </section>
 
-        <section id="settings">
+        <section id="settingsContainer" class="container">
             <button id="resetAllSettings">Reset All Settings</button>
             
-            <section id="tableOfContents">
-                <h2>List of Features</h2>
+            <!--<section id="features">
+                <h2>Features</h2>
                 <ul>
                     <li><a href="#menuTimer">Menu Timer</a></li>
                     <li><a href="#findNewGame">Find New Game</a></li>
                     <li><a href="#winningDisplay">Winning/Losing Display</a></li>
                     <li><a href="#kdrDisplay">KDR Display</a></li>
                 </ul>
-            </section>
+            </section>-->
 
             <section id="importExportSettings">
                 <h3>Import/Export Settings</h3>
@@ -131,7 +130,7 @@
 
         </section>
 
-        <section id="info" style="display: none;">
+        <section id="infoContainer" class="container">
             <h3>v2.0</h3>
             <ul>
                 <li>Added this UI! - customise the menu timer colours and set a custom hotkey</li>
