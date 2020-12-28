@@ -8,9 +8,9 @@
 }
 
 /* Global CSS */
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
     display: none;
-}
+}*/
 * {
     font-family: 'Open Sans';
 }
