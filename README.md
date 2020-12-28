@@ -21,6 +21,8 @@ Get the _@Extension_ role when you join.
   * Customise features
   * Toggle features on and off
   * Import and Export settings
+    * Press Export to get settings, and copy paste to save in a text file
+    * Paste in settings and press Import to import
   * Links to GitHub and Discord
 * **Menu Timer**
   * A simple time display on the menu that shows the time remaining in-game without the need to enter the game
