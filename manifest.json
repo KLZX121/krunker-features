@@ -1,7 +1,7 @@
 {
   "name": "Krunker Features",
-  "description" : "Krunker extension that provides helpful features - these are NOT hacks",
-  "version": "2.0",
+  "description" : "Krunker extension that provides helpful features - not hacks or cheats",
+  "version": "2.1",
   "manifest_version": 2,
   "content_scripts": [
     {
