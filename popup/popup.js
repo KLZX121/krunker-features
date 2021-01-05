@@ -7,7 +7,7 @@
 //export/import settings
 //reference input events in html
 
-//======================Settings=======================================
+//======================Save Settings==================================
 const importSettings = document.getElementById('importSettings'),
     exportSettings = document.getElementById('exportSettings'),
     settingsText = document.getElementById('settingsText'),
@@ -75,6 +75,38 @@ function switchToInfo(){
     infoBtn.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
 };
 
+//======================CSS Swapper====================================
+
+const selectCss = document.getElementById('selectCss');
+
+//set select options
+//code based on https://github.com/Tehchy/Krunker-Resource-Swapper/blob/master/init.js
+
+chrome.runtime.getPackageDirectoryEntry(root => { //gets the root directory
+    root.getDirectory('css', { create: false }, dir => { //gets css folder
+        
+        const reader = dir.createReader();
+        reader.readEntries(results => { //gets css files
+
+            for (const file of results) {
+                const fileName = file.name.slice(0, file.name.indexOf('.css'))
+                const option = document.createElement('option');
+                option.setAttribute('value', fileName);
+                option.innerHTML = fileName;
+                selectCss.appendChild(option);
+
+                chrome.storage.sync.get('css', results => {
+                    selectCss.value = results.css;
+                })
+            }
+        })
+    })
+})
+
+//apply
+selectCss.oninput = () => {
+    chrome.storage.sync.set({css: selectCss.value});
+};
 //======================Menu Timer=====================================
 
 //initialise

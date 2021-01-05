@@ -12,7 +12,8 @@ chrome.runtime.onInstalled.addListener(()=>{
             position: ['55%', '80%'], //left, top
             target: 0
         },
-        toggles: [true, true, true] //menuTimer, winningDisplay, kdrDisplay
+        toggles: [true, true, true], //menuTimer, winningDisplay, kdrDisplay
+        css: 'default'
     });
 });
 

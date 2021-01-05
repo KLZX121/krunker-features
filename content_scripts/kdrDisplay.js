@@ -1,3 +1,4 @@
+'use strict';
 const killsVal = document.getElementById('killsVal'),
     deathsVal = document.getElementById('deathsVal');
 

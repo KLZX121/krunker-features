@@ -1,0 +1,237 @@
+/* Level#1720 */
+.menuItem {
+    background-color: #2a2a2a;
+    transition: 0.3s
+}
+
+.menuItem:hover {
+    animation: borderAnim 1s ease-in-out infinite;
+    background-color: #484848
+}
+
+@keyframes borderAnim {
+    0% {
+        border: 10px solid #1e1e1e;
+    }
+
+   50% {
+       border: 15px solid #1e1e1e;
+   }
+
+   100% {
+        border: 10px solid #1e1e1e;
+    }
+}
+
+.button {
+    background-color: #484848!important;
+    transition: 0.4s;
+    box-shadow: 0px 5px black!important
+}
+
+.button:hover {
+    background-color: #1e1e1e!important;
+    box-shadow: 0px 5px black!important
+}
+
+.settingsHeader, .serverHeader {
+    background-color: transparent;
+}
+
+#menuWindow {
+    background-color: #151515;
+    box-shadow: 0px 6px #383838
+}
+
+.settName {
+    color: #5a5a5a
+}
+
+.settName span{
+    color: #5a5a5a!important
+}
+
+#requiresRestart {
+    color: #5a5a5a
+}
+
+#requiresRestart span {
+    color: #5a5a5a!important
+}
+
+.settingsBtn {
+    background-color: black
+}
+
+.strmCat {
+    color: black;
+    text-shadow:0 0 black
+}
+
+.material-icons {
+    color: grey!important;
+}
+
+#menuClassName {
+    color: black;
+    text-shadow:0 0 black
+}
+
+#menuClassSubtext {
+    color: black;
+    text-shadow:0 0 black
+}
+
+.menuItemTitle {
+    color: black!important;
+}
+
+.strmLink {
+    color: #a3a3a3;
+    text-shadow: 0 0 black
+}
+
+.strmViews {
+    color: darkgray;
+}
+
+.sliderVal {
+    background: black;
+    color: grey
+}
+
+.standout:before {
+    content: 'CSS Made by Level#1720 ';
+    cursor: default;
+}
+
+.imageButton {
+    display: none!important;
+}
+
+.headerBarRight {
+    background-color: transparent
+}
+
+.accountButton {
+    background-color: black;
+    transition: 0.5s;
+    color: grey;
+}
+
+.accountButton:hover {
+    background-color: grey;
+    color: black
+}
+
+.progressBarInner, .xpBarB {
+    background-color: grey
+}
+
+.floatR {
+    color: grey
+}
+
+.menuLink {
+    color: grey
+}
+
+#menuRegionLabel {
+    color: black;
+}
+
+span#menuFPS {
+    color: black!important;
+}
+
+.loadoutBtn {
+    color: grey;
+    background-color: black;
+}
+
+a[href="javascript:;"] {
+    color: grey!important
+}
+
+.lnkTw {
+    color: grey!important;
+    background-color: black!important
+}
+
+.krSocial {
+    background-color: black;
+    box-shadow: 0px 6px grey;
+}
+
+input:checked+.slider {
+    background-color: black
+}
+
+input:checked+.slider2 {
+    background-color: black
+}
+
+.sliderM::-webkit-slider-thumb {
+    background-color: black;
+}
+
+#customizeButton {
+    color: black;
+    text-shadow: 0 0 black!important
+}
+
+#customizeButton:hover {
+    color: grey;
+    transform: scale(1.1)
+}
+
+span.grey {
+    color: #606060!important;
+}
+
+.slide {
+    border: 5px solid transparent;
+    filter: grayscale()
+}
+
+.quickJoin {
+    background-color: black
+}
+
+a[onclick="openHostWindow()"] {
+    color: grey;
+}
+
+.iconProfile, .iconShop, .iconChall, .iconSocial, .iconGames, .iconMods, .iconSettings {
+    filter:grayscale()
+}
+
+a.grey {
+    color: grey
+}
+
+span[style="color:rgba(0,0,0,0.2);font-size:15px"] {
+    color: grey!important;
+}
+
+a[onclick="loadUserMod(\"LevelsCSS\",\"https://user-assets.krunker.io/md13051/mod.zip\",\"13051\",\"GSLevelYT\")"] {
+    color: black!important;
+    transition: 0.4s
+}
+
+a[onclick="loadUserMod(\"LevelsCSS\",\"https://user-assets.krunker.io/md13051/mod.zip\",\"13051\",\"GSLevelYT\")"]:hover {
+    color: grey!important;
+}
+
+a[onclick="loadUserMod(\"LevelMod\",\"https://user-assets.krunker.io/md8754/mod.zip\",\"8754\",\"GSLevelYT\")"] {
+    color: black!important;
+    transition: 0.4s
+}
+
+a[onclick="loadUserMod(\"LevelMod\",\"https://user-assets.krunker.io/md8754/mod.zip\",\"8754\",\"GSLevelYT\")"]:hover {
+    color: grey!important
+}
+
+a[onclick="loadUserMod(\"LevelsCSS\",\"https://user-assets.krunker.io/md13051/mod.zip\",\"13051\",\"GSLevelYT\")"]:after {
+    content:' (my css mod text added with css)'!important
+}

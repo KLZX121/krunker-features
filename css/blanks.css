@@ -1,0 +1,683 @@
+/* AcidEyezZz#7777 */
+:root {
+    --base: #424242;
+    --white: #fff;
+    --accent1: #9029cb;
+    --accent2: #ed7ef8;
+}
+
+@font-face {
+    font-family:gamefont;
+    src: url(https://dl.dropboxusercontent.com/s/xj27bf6i453a1up/kg-red-hands.regular.ttf?dl=0);
+}
+
+@font-face {
+    font-family:title;
+    src: url(https://dl.dropboxusercontent.com/s/xj27bf6i453a1up/kg-red-hands.regular.ttf?dl=0);
+}
+
+/* Cookies, Ads */
+#aContainer, #aHolder, #ot-sdk-btn-floating.ot-floating-button{
+    display: none !important;
+}
+
+/* Logo */
+
+#mainLogo, #seasonLabel{
+    display: none;
+}
+
+/* Buttons */
+
+.button.small{
+
+}
+
+#customizeButton .material-icons{
+    display: none
+}
+
+
+#menuItemContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 114.895px !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: -20px;
+    width: 100% !important
+}
+.menuItem .menuItemIcon {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    height: 0% !important;
+    width: 0% !important
+}
+.menuItemTitle {
+    position: absolute;
+    bottom: 50px;
+    font-size: 25px !important;
+}
+#menuItemContainer {
+        -webkit-transform: translateY(-110px);
+             transform: translateY(-102px);
+        -webkit-transition: 0.5s -webkit-transform;
+             transition-duration: 0.5s;
+}
+        
+#menuItemContainer:hover {
+                   -webkit-transform: translateY(3.8px);
+                    transform: translateY(-217px);
+}
+#menuItemContainer {
+         top: 1915px;
+         width: 1500px !important;
+         left: 27% !important;
+         background: #00000059;
+	     border: 5px solid black !important; 
+        }
+        .menuItem:hover {
+            border-top: none;
+            border-left: none;
+            border-top: 4px solid #c199ff !important;
+        }
+        .menuItem .menuItemTitle {
+            bottom: 40px !important;
+            color: white;
+            text-shadow: 0 0 1px black, 0px 0 3px black, 0 0 5px black, 0px 0 7px #000;
+        }
+        #menuItemContainer:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: 49.5%;
+            width: 6px;
+            height: 6px;
+            border-top: 20px solid transparent;
+            border-left: 25px solid #fff;
+            border-bottom: 20px solid transparent;
+            transform: rotate(270deg);
+            opacity: 1;
+            transition-duration: 0.25s;
+                    }
+#menuItemContainer:after {
+            content: '';
+            position: absolute;
+            top: -150%;
+            right: 47.5%;
+            width: 6px;
+            height: 6px;
+            border-top: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-bottom: 600px solid transparent;
+            transform: rotate(90deg);
+            pointer-events: auto!important;
+}
+
+#menuItemContainer:hover:before{
+    opacity: 0;
+}
+
+.menuItem{
+	background: transparent;
+}
+
+#newsHolder, #streamContainer{
+    display: none !important;
+}
+
+.headerBarRight {
+    visibility: hidden ;
+}
+
+.headerBarLeft{
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+    background: transparent;
+}
+
+.button.small{
+    top: -1720px;
+    box-shadow: none !important;
+    background: #00000070 !important;
+    width: 350px;
+    left: 420px;
+    margin-right: -5.8px !important;
+    margin-left: 0px !important;
+    border-bottom: 3px solid #ff57f7 !important;
+}
+
+#menuBtnHost{
+    border-left: 3px solid #ff57f7  !important;
+}
+
+#menuBtnJoin{
+   border-right: 3px solid #ff57f7  !important;
+ }
+
+#subLogoButtons {
+    position: absolute;
+    bottom: 132px;
+    left: 50%;
+    width: 2600px;
+    background-color: #ff000000;
+    transform: translate(-50%,0) scale(.95)
+}
+
+.progressBarInner {
+    background: #f321de;
+    border-radius: 3px
+}
+
+.verticalSeparator{
+    background: transparent;
+}
+
+#mLevelCont{
+    border: 3px solid black;
+    background: #ed7ef8;
+    color: black;
+}
+
+#policeButton{
+    display: none;
+}
+
+.menuClassLevelBox,  #menuClassNameTag{
+    display: none;
+}
+
+#menuClassSubtext{
+    margin-bottom: -80px !important;
+    color: white;
+    font-size: 25px;
+}
+
+#menuClassSubtext:before{
+    content: 'Skin ';
+    color: white;
+}
+
+#menuClassName{
+    margin-bottom: 160px !important;
+}
+
+#menuClassName:before{
+    content: 'Class '
+}
+
+#menuClassContainer{
+left: -95%;
+top: -700px;
+}
+
+#classPreviewCanvas{
+    display: none !important;
+}
+
+#customizeButton{
+  transition-duration: 0.5s;
+  transform: rotate(90deg) !important;
+  left: -194px;
+  border: 3px solid black;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#customizeButton:hover{
+    left: -125px;
+}
+
+#customizeButton:before{
+    content: '';
+    position: fixed;
+    top: -30%;
+    right: 50%;
+    width: 1px;
+    height: 7px;
+    border-left: 30px solid #fff;
+    opacity: 1;
+    transition-duration: 0.25s;
+}
+
+#customizeButton:hover:before{
+    opacity: 0;
+}
+
+#customizeButton:hover{
+    border: 3px solid #ed7ef8 !important;
+    color: #ed7ef8;
+}
+
+#termsInfo{
+    background: transparent;
+}
+
+.standout{
+   color: rgba(255,255,255,.6);
+}
+
+.standout:before{
+    content: 'By AcidEyezZz';
+    margin-right: 10px;
+    color: #ed7ef8;
+}
+
+#menuWindow{
+  background: #ffffff29;
+  backdrop-filter: blur(4px);
+  box-shadow: none;
+  border: 3px solid black;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#rawMapData{
+  border: 2px solid black;
+  font-size: 15px;
+  background: #ffffff29
+}
+
+#rawMapData::placeholder{
+  color: var(--accent2);
+}
+
+#customSnameTeam2, #customSnameTeam1{
+  border: 2px solid black !important;
+  font-size: 15px !important;
+  background: #ffffff29 !important
+}
+
+#customSnameTeam2, #customSnameTeam1{
+  color: var(--accent2);
+}
+
+.sliderVal {
+  background: var(--accent2);
+  color: black
+}
+
+.slider {
+    background-color: #00000082;
+    border-radius: 32px
+}
+
+.slider:before {
+    background-color: #fff;
+    border-radius: 32px
+}
+
+input:checked+.slider {
+    background-color: #ed7ef8
+}
+
+.sliderM {
+    background-color: #00000054;
+    border-radius: 32px
+}
+
+.sliderM::-webkit-slider-thumb {
+    width: 25px;
+    height: 22px;
+    border-radius: 32px;
+    background: #ed7ef8;
+}
+
+#passCode, #presetName, #presetSelect{
+    border: 2px solid black !important;
+  font-size: 15px !important;
+  background: #ffffff29 !important
+}
+
+#passCode::placeholder, #presetName::placeholder{
+  color: var(--accent2)
+}
+
+.hostPresetBtn {
+  border: 2px solid black !important;
+  font-size: 15px !important;
+  background: #ed7ef8 !important;
+  color: black;
+}
+
+.button.small:hover{
+  transform: scale(1);
+  background: #ffffff29 !important;
+}
+
+.button.small{
+  transition-duration: 0.25s;
+}
+
+a {
+    color: #ed7ef8;
+}
+
+a:active {
+    color: #ed7ef8
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.skinList {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  position: relative;
+}
+
+.skinList .classCard {
+  width: auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-family: var(--mainFont);
+  text-shadow: unset;
+  height: 100px;
+  -webkit-transition: color 280ms 200ms;
+  transition: color 280ms 200ms;
+}
+
+.skinList .classCard .classWeap {
+  font-family: var(--mainFont);
+  text-shadow: unset;
+  -webkit-transition: opacity 280ms 200ms;
+  transition: opacity 280ms 200ms;
+}
+
+.skinList .classCard .classImgC {
+  position: absolute;
+  margin-top: unset;
+  width: 100px;
+  margin: unset;
+  right: 0;
+  border-radius: 0;
+  z-index: 12222 !important;
+  -webkit-transition: -webkit-transform 500ms 200ms ease-in-out;
+  transition: -webkit-transform 500ms 200ms ease-in-out;
+  transition: transform 500ms 200ms ease-in-out;
+  transition: transform 500ms 200ms ease-in-out, -webkit-transform 500ms 200ms ease-in-out;
+}
+
+.skinList .classCard .classXPBar {
+  BOX-SHADOW: unset;
+  position: absolute;
+  top: unset;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 0;
+  background-color: var(--primaryBg);
+  -webkit-transition: opacity 280ms 200ms;
+  transition: opacity 280ms 200ms;
+}
+
+.skinList .classCard .classXPBar .clsXPBarC {
+  background-color: var(--accentColor);
+  margin: unset;
+  height: 100%;
+}
+
+.skinList .classCard .classLvl {
+  font-family: var(--mainFont);
+  text-shadow: unset;
+  position: absolute;
+  top: unset;
+  bottom: 10%;
+  font-size: 20px;
+  -webkit-transition: opacity 280ms 200ms ease;
+  transition: opacity 280ms 200ms ease;
+  width: 100%;
+  text-align: left;
+  left: 10px;
+}
+
+.skinList .classCard .classHP {
+  font-family: var(--mainFont);
+  text-shadow: unset;
+  color: var(--c_white);
+  position: absolute;
+  top: unset;
+  left: 13px;
+  font-size: 20px;
+  bottom: 30%;
+  right: -25%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: opacity 280ms 200ms;
+  transition: opacity 280ms 200ms;
+}
+
+.skinList .classCard .classHP span {
+  font-family: var(--mainFont);
+  text-shadow: unset;
+  color: var(--accentColor);
+}
+
+.skinList .classCard:hover {
+  color: transparent;
+}
+
+.skinList .classCard:hover .classWeap {
+  opacity: 0%;
+}
+
+.skinList .classCard:hover .classImgC {
+  -webkit-transform: translateX(-115px) scale(2) translateY(10px);
+          transform: translateX(-115px) scale(2) translateY(10px);
+}
+
+.skinList .classCard:hover .classXPBar {
+  opacity: 0%;
+}
+
+.skinList .classCard:hover .classLvl {
+  opacity: 0%;
+}
+
+.skinList .classCard:hover .classHP {
+  opacity: 0%;
+}
+
+#skinList {
+  margin-top: 8px;
+  margin-bottom: -4px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+#skinList .skinCard {
+  text-align: unset;
+  margin-bottom: unset;
+  margin-left: unset;
+  margin-right: unset;
+  padding: unset;
+  padding-top: unset;
+  width: auto;
+  vertical-align: unset;
+  background-color: transparent;
+  border-radius: 0px;
+  display: block;
+  font-size: 20px;
+  position: relative;
+  z-index: 1;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  padding-bottom: .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-family: var(--mainFont);
+  text-shadow: unset !important;
+  height: 120px !important;
+}
+
+#skinList .skinCard .itemOwn {
+  display: none;
+}
+
+#skinList .skinCard .itemSea {
+  display: none;
+}
+
+#skinList .skinCard .skinImg {
+  margin-top: unset;
+  margin-bottom: unset;
+  position: absolute;
+  height: 100%;
+  width: auto;
+  right: 40px;
+}
+
+#skinList .skinCard .skinImgC {
+  position: absolute;
+  z-index: -122;
+  left: 25%;
+}
+
+#skinList .skinCard .skinImgD {
+  position: absolute;
+  left: 65px;
+  bottom: -20px;
+}
+
+#skinList .skinCard .skinRandom {
+  display: none;
+}
+
+#skinList .skinCard .secImg {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  z-index: -1 !important;
+  width: 80px;
+  height: 80px;
+}
+
+#skinList .skinCard .selctInfoBtn {
+  padding: unset;
+  padding-bottom: unset;
+  padding-top: unser;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--accentColor);
+  font-family: var(--mainFont);
+  font-size: 20px;
+  background: var(--subBgST);
+  padding-left: 12px;
+  padding-right: 12px;
+  -webkit-transition: color 280ms, background 280ms;
+  transition: color 280ms, background 280ms;
+}
+
+#skinList .skinCard .selctInfoBtn:hover {
+  color: var(--subBg);
+  background: var(--accentColor);
+}
+
+#skinList .skinCard[style="color:#292929;border:5px solid#292929"] {
+  color: var(--accentColor) !important;
+  border-color: var(--accentColor) !important;
+}
+
+#skinList .noBtnCard {
+  height: 120px;
+  width: auto;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  border-top: 0 !important;
+  margin-left: unset;
+  margin-right: unset;
+  margin-bottom: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-family: var(--mainFont);
+  text-shadow: unset !important;
+  height: 120px !important;
+}
+
+#skinList .noBtnCard .sprayImg, #skinList .noBtnCard .noBtnImgC {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  z-index: -1 !important;
+  width: 80px;
+  height: 80px;
+}
+
+#skinList .noBtnCard .noBtnImgR {
+  position: absolute;
+  left: 95px;
+  top: 40px;
+  z-index: -1 !important;
+  width: 30px;
+  height: 30px;
+}
+
+#skinList .noBtnCard .customReticle {
+  position: absolute;
+  top: 40px;
+  width: 182px;
+}
+
+#skinList .noBtnCard .itemOwn {
+  display: none;
+}
+
+#skinList .noBtnCard .skinRandom {
+  display: none;
+}
+
+#skinList .blackShad {
+  text-shadow: unset;
+}
+
+.settingsHeader, .serverHeader{
+  background: transparent;
+}

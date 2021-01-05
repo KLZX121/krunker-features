@@ -1,33 +1,43 @@
 {
-  "name": "Krunker Features",
-  "description" : "Krunker extension that provides helpful features - not hacks or cheats",
-  "version": "2.1",
-  "manifest_version": 2,
-  "content_scripts": [
-    {
-      "matches": ["https://krunker.io/*"],
-      "exclude_matches":["https://krunker.io/social.html"],
-      "js": [
-        "./content_scripts/menuTimer.js", 
-        "./content_scripts/findNewGame.js", 
-        "./content_scripts/winningDisplay.js",
-        "./content_scripts/kdrDisplay.js"
-      ]
-    }
-  ],
-  "icons": {
-    "16": "imgs/icon_16.png",
-    "48": "imgs/icon_48.png",
-    "128": "imgs/icon_128.png" 
-  },
-  "browser_action":{
-    "default_popup": "./popup/popup.html"
-  },
-  "permissions": [
-    "storage"
-  ],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  }
+	"name": "Krunker Features",
+	"description": "Krunker extension that provides helpful features - not hacks or cheats",
+	"version": "2.1",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"matches": [
+				"https://krunker.io/*"
+			],
+			"exclude_matches": [
+				"https://krunker.io/social.html"
+			],
+			"js": [
+				"./content_scripts/menuTimer.js",
+				"./content_scripts/findNewGame.js",
+				"./content_scripts/winningDisplay.js",
+				"./content_scripts/kdrDisplay.js",
+				"./content_scripts/cssSwapper.js"
+			]
+		}
+	],
+	"icons": {
+		"16": "imgs/icon_16.png",
+		"48": "imgs/icon_48.png",
+		"128": "imgs/icon_128.png"
+	},
+	"browser_action": {
+		"default_popup": "./popup/popup.html"
+	},
+	"permissions": [
+		"storage"
+	],
+	"background": {
+		"scripts": [
+			"background.js"
+		],
+		"persistent": false
+	},
+	"web_accessible_resources": [
+		"*.css"
+	]
 }

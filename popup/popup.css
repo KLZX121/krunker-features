@@ -19,7 +19,7 @@ html {
     background-image: url('../imgs/background2.png');
     background-size: 100% 100%;
 }
-button {
+button, select, option {
     border: none;
     outline: none;
     cursor: pointer;
@@ -36,6 +36,9 @@ h3 {
 }
 label {
     font-size: 1.1em;
+}
+select {
+    float: right;
 }
 input {
     outline: none;
