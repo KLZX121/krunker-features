@@ -77,11 +77,12 @@ function switchToInfo(){
 
 //======================CSS Swapper====================================
 
-const selectCss = document.getElementById('selectCss');
+const selectCss = document.getElementById('selectCss'),
+    cssFileInput = document.getElementById('cssFileInput'),
+    cssFileBtn = document.getElementById('cssFileBtn');
 
 //set select options
 //code based on https://github.com/Tehchy/Krunker-Resource-Swapper/blob/master/init.js
-
 chrome.runtime.getPackageDirectoryEntry(root => { //gets the root directory
     root.getDirectory('css', { create: false }, dir => { //gets css folder
         
@@ -107,6 +108,9 @@ chrome.runtime.getPackageDirectoryEntry(root => { //gets the root directory
 selectCss.oninput = () => {
     chrome.storage.sync.set({css: selectCss.value});
 };
+
+//link btn to input
+cssFileBtn.onclick = () => document.getElementById('cssFileInput').click();
 //======================Menu Timer=====================================
 
 //initialise

@@ -19,13 +19,13 @@ html {
     background-image: url('../imgs/background2.png');
     background-size: 100% 100%;
 }
-button, select, option {
+button, select, input[type="button"] {
     border: none;
     outline: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.5);
 }
-button:hover {
+button:hover, select:hover, input[type="button"]:hover {
     border: white solid;
 }
 h3 {
@@ -37,11 +37,20 @@ h3 {
 label {
     font-size: 1.1em;
 }
-select {
+select, input[type="button"] {
     float: right;
+    height: 2em;
+    font-size: 1em;
+}
+select {
+    border: solid rgba(0, 0, 0, 0);
+    width: 9em;
 }
 input {
     outline: none;
+}
+input[type="button"] {
+    width: 7em;
 }
 input[type="color"] {
     border: none;
