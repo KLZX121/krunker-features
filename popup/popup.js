@@ -7,7 +7,29 @@
 //export/import settings
 //reference input events in html
 
+//======================Info Container=================================
+
+const readMe = document.getElementById('readMe');
+
+chrome.runtime.getPackageDirectoryEntry(root => { 
+    const rootReader = root.createReader();
+    rootReader.readEntries(results => { //gets css files
+        const readMeFile = results.filter(file => file.name === 'README.md')[0];
+        console.log(readMeFile);
+        readMeFile.file(file => {
+            console.log(file);
+            const fileReader = new FileReader();
+            fileReader.onload = e => {
+                readMe.innerHTML = e.target.result;
+            };
+            fileReader.readAsText(file);
+        });
+        
+    });
+});
+
 //======================Save Settings==================================
+
 const importSettings = document.getElementById('importSettings'),
     exportSettings = document.getElementById('exportSettings'),
     settingsText = document.getElementById('settingsText'),
@@ -48,7 +70,8 @@ resetAllSettingsBtn.onclick = () => {
                 position: ['55%', '80%'], //left, top
                 target: 0
             },
-            toggles: [true, true, true] //menuTimer, winningDisplay, kdrDisplay
+            toggles: [true, true, true], //menuTimer, winningDisplay, kdrDisplay
+            css: 'default' 
         }, setAllValues)
     }
 }
@@ -109,8 +132,16 @@ selectCss.oninput = () => {
     chrome.storage.sync.set({css: selectCss.value});
 };
 
-//link btn to input
+/* reads a file
 cssFileBtn.onclick = () => document.getElementById('cssFileInput').click();
+cssFileInput.oninput = () => {
+    const file = cssFileInput.files[0];
+    let reader = new FileReader();
+    reader.onload = e => {
+        const data = e.target.result;
+    };
+    reader.readAsText(file); 
+}*/
 //======================Menu Timer=====================================
 
 //initialise
