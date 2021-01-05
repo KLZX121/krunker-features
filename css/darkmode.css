@@ -1,4 +1,4 @@
-/* Level#1720 */
+/* Sorte#0001 */
 .menuItem {
     background-color: #2a2a2a;
     transition: 0.3s
@@ -13,12 +13,10 @@
     0% {
         border: 10px solid #1e1e1e;
     }
-
-   50% {
-       border: 15px solid #1e1e1e;
-   }
-
-   100% {
+    50% {
+        border: 15px solid #1e1e1e;
+    }
+    100% {
         border: 10px solid #1e1e1e;
     }
 }
@@ -34,7 +32,8 @@
     box-shadow: 0px 5px black!important
 }
 
-.settingsHeader, .serverHeader {
+.settingsHeader,
+.serverHeader {
     background-color: transparent;
 }
 
@@ -47,7 +46,7 @@
     color: #5a5a5a
 }
 
-.settName span{
+.settName span {
     color: #5a5a5a!important
 }
 
@@ -65,7 +64,7 @@
 
 .strmCat {
     color: black;
-    text-shadow:0 0 black
+    text-shadow: 0 0 black
 }
 
 .material-icons {
@@ -74,12 +73,12 @@
 
 #menuClassName {
     color: black;
-    text-shadow:0 0 black
+    text-shadow: 0 0 black
 }
 
 #menuClassSubtext {
     color: black;
-    text-shadow:0 0 black
+    text-shadow: 0 0 black
 }
 
 .menuItemTitle {
@@ -98,11 +97,6 @@
 .sliderVal {
     background: black;
     color: grey
-}
-
-.standout:before {
-    content: 'CSS Made by Level#1720 ';
-    cursor: default;
 }
 
 .imageButton {
@@ -124,7 +118,8 @@
     color: black
 }
 
-.progressBarInner, .xpBarB {
+.progressBarInner,
+.xpBarB {
     background-color: grey
 }
 
@@ -202,8 +197,14 @@ a[onclick="openHostWindow()"] {
     color: grey;
 }
 
-.iconProfile, .iconShop, .iconChall, .iconSocial, .iconGames, .iconMods, .iconSettings {
-    filter:grayscale()
+.iconProfile,
+.iconShop,
+.iconChall,
+.iconSocial,
+.iconGames,
+.iconMods,
+.iconSettings {
+    filter: grayscale()
 }
 
 a.grey {
@@ -233,5 +234,9 @@ a[onclick="loadUserMod(\"LevelMod\",\"https://user-assets.krunker.io/md8754/mod.
 }
 
 a[onclick="loadUserMod(\"LevelsCSS\",\"https://user-assets.krunker.io/md13051/mod.zip\",\"13051\",\"GSLevelYT\")"]:after {
-    content:' (my css mod text added with css)'!important
+    content: ' (my css mod text added with css)'!important
+}
+
+#clientExit {
+    display: none !important;
 }

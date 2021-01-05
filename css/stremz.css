@@ -1,0 +1,1061 @@
+/* StremZ#6666 */
+.menuItem {
+    color: #fff;
+    flex-grow: 1;
+    display: flex;
+    transition: all .1s;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background:  rgb(144 144 144 / 0.27);
+    text-align: center;
+    pointer-events: all;
+    cursor: pointer;
+    backdrop-filter: blur(5px) 
+}
+
+.menuItem:active {
+    background-color: #c80000;
+}
+
+.menuItem:hover {
+    background-color: #eb5656;
+}
+
+#presetSelect {
+	background-color: #5c5c5c !important;
+}
+
+.menuTabNew:hover {
+	box-shadow: inset 0 -5px rgba(0, 0, 0, .2)
+}
+
+.tabANew {
+    cursor: default;
+    box-shadow: none;
+}
+
+.tabANew:hover {
+	box-shadow: inset 0 -5px rgba(0, 0, 0, .7)
+}
+
+.headerBar {
+    position: absolute;
+    top: 0;
+    height: 70px;
+    padding: 0 12px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(144 144 144 / 0.27);
+    pointer-events: auto;
+    backdrop-filter: blur(5px)
+}
+
+#mLevelCont {
+    position: absolute;
+    font-size: 30px;
+    line-height: 70px;
+    color: #fff;
+    text-align: left;
+    background-color: rgb(46 46 47);
+    border-bottom-right-radius: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 70px;
+    backdrop-filter: blur(5px)
+}
+
+#subLogoButtons {
+	position: absolute;
+	bottom: 132px;
+	left: 50%;
+	transform: translate(-50%, 0) scale(.95)
+}
+
+#subLogoButtons>.button {
+	padding-left: 22px;
+	padding-right: 22px;
+	text-shadow: none !important;
+	color: #000;
+	background-color: red !important;
+	box-shadow: none !important;
+}
+
+.button {
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 12px 18px;
+	padding-top: 14px;
+	margin-bottom: 6px;
+	background-color: #ff0000;
+	box-shadow: inset 0 -7px 0 0 #b08531;
+	text-align: center;
+	color: #2f2f2f;
+	text-shadow: none !important; 
+	pointer-events: all;
+	cursor: pointer;
+	-webkit-transition: all .2s;
+	transition: all .2s
+}
+
+#customizeButton {
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+    font-size: 23px;
+    pointer-events: all;
+    padding-bottom: 22px;
+    background-color: red !important;
+    color: #000000;
+    text-shadow: none !important;
+    box-shadow: none;
+}
+
+.buttonG {
+    background-color: none !important;
+    box-shadow: none !important
+}
+
+.buttonB {
+    background-color: #ff0000!important;
+    box-shadow: none !important;
+}
+
+.terms {
+    font-size: 18px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: rgb(255 0 0);
+    text-decoration: none;
+    pointer-events: all;
+    display: inline-block
+}
+
+#termsInfo {
+    background-color: rgb(144 144 144 / 0%);
+    padding: 5px 15px 15px 20px;
+    border-top-left-radius: 6px;
+    margin-right: -15px;
+    backdrop-filter: blur(5px)
+   
+}
+
+.sliderSml {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444444;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+    pointer-events: all;
+}
+
+.sliderSml:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #f00;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%
+}
+
+input:checked+.sliderSml {
+    background-color: #545454;
+}
+
+.progressBarInner {
+    height: 100%;
+    background: #eb5656;
+    border-radius: 3px
+}
+
+.verticalSeparator {
+    background: rgb(255 255 255 / 0%);
+    width: 4px;
+    height: 55px;
+    margin: 0 10px;
+}
+
+#menuKRCount {
+    color: #eb5656
+}
+
+.settName,
+.settNameSmall {
+	clear: both;
+	margin-top: 3px;
+	font-size: 22px;
+	color: #ff4747;
+}
+
+.floatR {
+	float: right;
+	clear: both;
+	color: #fff;
+}
+
+.menuTabNew {
+    text-align: center;
+    display: table-cell;
+    padding: 7px 0 5px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer
+}
+
+.xpBarB {
+    height: 100%;
+    background-color: #ff4646
+}
+
+a {
+    cursor: pointer;
+    text-shadow: none;
+    color: #fff;
+    text-decoration: none;
+    pointer-events: all
+}
+
+* {
+    outline: none;
+    font-family: gamefont;
+    color: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inputGrey2 {
+    border: none;
+    background: #4e4e4e;
+    padding: 6px;
+    padding-bottom: 6px;
+    float: right;
+    margin-left: 10px;
+    font-size: 12px;
+    border-radius: 4px
+}
+
+.smlInput {
+    display: inline-block;
+    width: 82%;
+    padding: 5px;
+    padding-left: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #4e4e4e;
+    color: #fff;
+    border-radius: 4px
+}
+
+.subPassChg {
+    background-color: #2196f300;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    margin-left: 10px;
+    color: #fff;
+    cursor: pointer
+}
+
+.lnkTw {
+    background-color: #6441a500;
+    margin-top: 2px;
+    vertical-align: bottom;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 80px;
+    text-align: center;
+    margin-left: 10px;
+    color: #fff;
+    float: right
+}
+
+.chalXPBarC {
+    background-color: #ff4646;
+    height: 24px;
+    font-size: 16px
+}
+
+#menuWindow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 6px;
+    max-height: calc(100% - 480px);
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    overflow-y: auto;
+    display: inline-block;
+    text-align: left;
+    pointer-events: auto;
+    padding: 20px;
+    width: 705px;
+    font-size: 20px;
+    background-color: #4c4c4cc4;
+    -webkit-box-shadow: 0 9px 0 0 #a6a6a6;
+    -moz-box-shadow: 0 9px 0 0 #a6a6a6;
+    box-shadow: 0 9px 0 0 #a6a6a6;
+}
+
+.settingsHeader {
+    width: 100%;
+    padding-top: 19px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -.5px;
+    z-index: 999999999;
+    background-color: rgb(244 244 244 / 0%);
+    padding-left: 20px;
+    margin-left: -20px;
+}
+
+#settSearch {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #4e4e4e;
+    border-radius: 4px;
+    padding: 6px 10px 5px;
+}
+
+.sliderVal {
+    float: right;
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    color: #000;
+    line-height: 24px;
+    font-size: 18px;
+    text-align: center;
+    background: #eb5656;
+    padding: 5px 10px;
+    margin-left: 8px;
+    margin-right: -10px;
+    border-radius: 6px
+}
+
+.settingsBtn {
+    color: rgb(0 0 0);
+    text-align: center;
+    display: inline-block;
+    width: 75px;
+    cursor: pointer;
+    background-color: #eb5656;
+    font-size: 17px;
+    padding: 4px 8px;
+    margin-left: 8px;
+    float: right;
+    border-radius: 4px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap
+}
+
+input:checked+.slider {
+    background-color: #eb5656;
+}
+
+.sliderM {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background-color: #373737;
+    outline: none;
+    border-radius: 4px
+}
+
+.sliderM::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 25px;
+    border-radius: 4px;
+    background: #eb5656;
+    cursor: pointer
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 4px
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #373737;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 6px;
+}
+
+.loadoutBtn {
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 75px;
+    cursor: pointer;
+    background-color: #2196f300;
+    font-size: 15px;
+    padding: 4px;
+    margin-left: 10px;
+    margin-top: 5px;
+    float: right;
+    border-radius: 6px;
+}
+
+a:visited {
+    color: #ffffff
+}
+
+.formInput {
+    pointer-events: auto;
+    font-size: 12px;
+    padding: 10px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background: #4c4c4c !important;
+    float: right;
+    border-radius: 6px
+}
+
+.clsXPBarC {
+    margin: 4px;
+    background-color: #eb5656;
+    height: 18px
+}
+
+.standout {
+    color: #fff !important;
+}
+
+.buttonP {
+    background-color: #ff0000 !important;
+    box-shadow: none !important
+}
+
+.buttonP:hover {
+    background-color: #fff!important;
+    box-shadow: none !important
+}
+
+.headerBar div {
+    color: #000
+}
+
+.b {
+    color: rgb(255 255 255)!important;
+}
+
+#newsHolder {
+    pointer-events: all;
+    width: 285px;
+    height: 220px;
+    padding: 10px;
+    overflow-y: scroll;
+    z-index: 20;
+    position: absolute;
+    right: 14px;
+    top: 86px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: rgb(144 144 144 / 0.27);
+    backdrop-filter: blur(5px)
+}
+
+input:checked+.optCheck {
+    background-color: #eb5656
+}
+
+.hostToggle {
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 75px;
+    cursor: pointer;
+    background-color: #0c0c0c00;
+    font-size: 15px;
+    padding: 4px;
+    float: right;
+    border-radius: 4px;
+}
+
+.hostPresetBtn {
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 75px;
+    cursor: pointer;
+    background-color: #2196f300;
+    font-size: 15px;
+    padding: 4px;
+    margin-left: 10px;
+    margin-top: 5px;
+    float: right;
+    border-radius: 6px
+}
+
+.accountButton {
+    color: rgb(228 228 228);
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+    width: 342px;
+    cursor: pointer;
+    background-color: #eb5656;
+    font-size: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 6px
+}
+
+.searchBtn {
+    background-color: #2196f300;
+    display: inline-block;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100px;
+    text-align: center;
+    margin-left: 10px;
+    color: #fff;
+    cursor: pointer
+}
+
+.serverHeader {
+    width: 100%;
+    padding-top: 19px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999999999;
+    background-color: #fff0;
+    display: table
+}
+
+.slide {
+    position: relative;
+    border: 5px solid #3c3c3c;
+    color: #fff;
+    float: left;
+    font-size: 20px;
+    height: 100px;
+    text-align: center;
+    width: 213px;
+    transition: all .4s;
+    cursor: pointer
+}
+
+input:checked+.slider2 {
+    background-color: #eb5656
+}
+
+.slider2:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #000000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 4px
+}
+
+.quickJoin {
+    border-radius: 3px;
+    background-color: #eb5656;
+    font-size: 13px;
+    padding: 4px;
+    cursor: pointer;
+    pointer-events: all;
+    z-index: 99999;
+    display: inline-block;
+    margin-left: 10px;
+    color: #000;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    text-shadow: none;
+    transition: all .02s
+}
+
+#serverSearch {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    background-color: #3c3c3c;
+    border-radius: 4px;
+    font-size: 18px
+}
+
+.headerBar div {
+    color: #fff;
+}
+
+.joinQueue {
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+    display: inline-block;
+    -webkit-transition: .1s;
+    transition: .1s;
+    width: 705px;
+    height: 60px;
+    line-height: 50px;
+    cursor: pointer;
+    box-shadow: none;
+    background-color: #ff0000;
+    font-size: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-shadow: none;
+}    
+.accountInput {
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 22px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    background-color: rgb(0 0 0 / 10%);
+    color: #fff
+}
+
+.button.lgn {
+    font-size: 18px;
+    padding-top: 5px;
+    margin-top: 7px;
+    background-color: red !important;
+    color: black;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+#speakerDisplay {
+	text-align: left;
+	z-index: 0;
+	display: none;
+}
+
+#speakerDisplay {
+	text-align: left;
+	z-index: 0;
+	display: none;
+}
+
+#voiceDisplay {
+	opacity: .5;
+	z-index: 2;
+	position: absolute;
+	bottom: 18px;
+	left: 300px;
+	width: 0px !important;
+	height: 0px !important;
+	bottom: 10000px !important;
+}
+
+#uiBase.onMenu #voiceDisplay {
+	width: 0px;
+	height: 0px;
+	font-size: 0px;
+}
+
+#chatHolder {
+	position: absolute;
+	z-index: 1000;
+	width: 280px;
+	bottom: 20px;
+	left: 20px
+}
+
+#uiBase.onMenu #chatHolder {
+	left: 150px
+}
+
+#chatInput {
+	width: 550px;
+	height: 66px;
+	padding: 5px;
+	padding-left: 10px;
+	color: #ff4f4f !important;
+	font-size: 22px;
+	box-sizing: border-box;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 0px;
+	pointer-events: all;
+	border-radius: unset;
+	margin-top: 18px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+#chatInput::placeholder {
+	color: rgba(255, 255, 255, .7)
+}
+
+#chatList {
+	overflow-y: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
+	z-index: 999999;
+	pointer-events: all;
+	position: relative;
+	direction: rtl;
+	text-align: left;
+	margin-right: -250px;
+	margin-left: 25px;
+	max-height: 400px !important;
+}
+
+#chatList::-webkit-scrollbar-track {
+	-webkit-box-shadow: unset;
+	box-shadow: unset;
+	border-radius: unset;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#chatList::-webkit-scrollbar {
+	width: 8px
+}
+
+#chatList::-webkit-scrollbar-thumb {
+	border-radius: unset;
+	-webkit-box-shadow: unset;
+	box-shadow: unset;
+	border-color: #00000000;
+}
+
+.chatItem {
+	max-width: 500px;
+	word-wrap: break-word;
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0px;
+	color: #ff9494;
+	font-size: 16px;
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 500px;
+	margin-left: inherit;
+	text-align: center;
+}
+
+.chatMsg {
+	color: #ff5151 !important;
+	padding-left: 4px;
+}
+.ingameFps, #ingameFps {
+    color: #eb5656 !important
+}
+.skinCard:hover {
+	background-color: rgba(205, 205, 205, 0.31);
+}
+.tListN.trade {
+    color: #fff !important;
+    text-align: left;
+    padding-left: 10px;
+}
+#tHeader0, #tHeader1 {
+    color: #fff !important
+}
+.tListN.inv {
+    background-color: transparent;
+    color: #fff !important
+}
+.tItemHolder {
+    cursor: pointer;
+    pointer-events: auto;
+    color: #fff;
+    margin-bottom: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 5px;
+    padding-top: 2px;
+    width: 60px;
+    height: 60px;
+    vertical-align: top;
+    background-color: rgba(255,255,255,.5);
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #fff;
+}
+.tList {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 250px;
+    overflow-y: scroll;
+    min-height: 70px;
+}
+.streakChatIcon {
+	margin-right: 5px;
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-bottom: -6px
+}
+
+.headShotChatIcon {
+	width: 28px;
+	height: 28px;
+	margin-right: 8px;
+	margin-bottom: -4px;
+	margin-left: -5px
+}
+
+.weaponChatIcon {
+	width: 58px;
+	height: 28px;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: -5px;
+	transform: scaleX(-1);
+	-webkit-transform: scaleX(-1)
+}
+
+.ingameFps, #ingameFps {
+    color: #eb5656 !important
+}
+
+#timerVal {
+	color: #eb5656;
+	padding-left: 3px;
+	font-size: 32px;
+	will-change: transform;
+	transform: translateZ(0);
+}
+
+#pingDisplay,
+#fpsDisplay,
+#ingressDisplay,
+#egressDisplay {
+	font-size: 18px;
+	vertical-align: top;
+	color: #eb5656 !important;
+}
+
+.tScoreF {
+	vertical-align: sub;
+	font-size: 30px!important;
+	color: #eb5656;
+	padding-left: 5px;
+	padding-right: 5px
+}
+
+.tScoreC {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-right: 10px;
+	background-color: #eb5656
+}
+
+#healthValue {
+	color: #ff2c2c;
+	font-size: 20px;
+	will-change: transform;
+	display: inline-block;
+}
+
+#maxHP {
+	color: rgb(255, 47, 47);
+}
+
+#ammoMax {
+	color: rgb(255, 22, 22);
+	display: inline-block;
+}
+
+#ammoVal {
+	color: #ff2424;
+	display: inline-block;
+}
+
+#queueStatusText,
+#queuePartyMembers {
+	font-size: 18px;
+	margin-bottom: 5px;
+	vertical-align: top;
+	color: #eb5656;
+	padding-left: 10px;
+}
+
+#uiBase.onMenu #voiceDisplay {
+    display: none;
+}
+
+#instructions {
+    color:red
+}
+
+#weapDisplay {
+	position: absolute;
+	z-index: 1;
+	right: 20px;
+	bottom: 80px
+}
+
+.weapItem {
+	position: relative;
+	text-align: right;
+	margin-top: -12px
+}
+
+.weapKey {
+	right: -8px;
+	top: 8px;
+	color: #fff;
+	font-size: 14px;
+	position: absolute
+}
+
+.weapIcon {
+	width: 140px;
+	height: 70px
+}
+
+.newLeaderContainer {
+	text-align: left;
+	color: #eb5656;
+	background-color: rgba(0, 0, 0, 0);
+	padding: 10px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+}
+
+#killsVal,#deathsVal,#streakVal,#myScoreVal {
+    color: #eb5656
+}
+
+.leaderCounter {
+    margin-right: 8px;
+    width: 20px;
+    color: #eb5656
+}
+
+#healthValueHolder {
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 9px;
+    padding-right: 7px;
+    padding-left: 9px
+}
+
+#timerDisplay {
+    text-align: left;
+    z-index: 3;
+    padding: 10px;
+    padding-right: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    will-change: transform;
+    transform: translateZ(0);
+    border-radius: 10px;
+    vertical-align: top;
+    background-color: transparent;
+}
+
+
+#ammoDisplay {
+    margin-right: -15px;
+    display: inline-block;
+    padding: 7px;
+    padding-top: 8px;
+    padding-left: 20px;
+    font-size: 35px;
+    letter-spacing: -2px;
+    border-radius: 10px;
+    height: 65px;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-color: transparent;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+#leaderDisplay {
+    text-align: left;
+    float: right;
+    width: 310px;
+    z-index: 3;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: rgb(255 0 0 / 70%);
+    font-size: 23px;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 10px
+}
+
+.countIcon {
+    color: rgba(255,255,255,.6);
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 26px;
+    padding-right: 20px;
+    padding-left: 14px;
+    border-radius: 10px
+}
