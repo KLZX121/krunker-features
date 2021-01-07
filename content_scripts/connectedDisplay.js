@@ -35,6 +35,9 @@ function sendChatMsg(){
 }
 
 function updateConnectedDisplay(){
+    if (!connectedDisplay.innerHTML){
+        connectedDisplay.innerHTML = 'Connected';
+    }
     chrome.storage.sync.get(['connectedDisplay', 'toggles'], results => {
         connectedDisplay.style.display = results.toggles[3] ? 'inline' : 'none';
         connectedDisplay.style.color = results.connectedDisplay.colour;
