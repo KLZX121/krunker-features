@@ -37,8 +37,8 @@ function setDisplay(status) {
             winningDisplay.style.color = `${status === 'Winning' ? colours[0] : status === 'Losing' ? colours[1] : colours[2]}`
         };
         winningDisplay.style.display = result.toggles[1] ? 'inline' : 'none';
-        winningDisplay.style.left = `${result.winningDisplay.position[0]}`;
-        winningDisplay.style.top = `${result.winningDisplay.position[1]}`;
+        winningDisplay.style.left = result.winningDisplay.position[0];
+        winningDisplay.style.top = result.winningDisplay.position[1];
     });
 };
 

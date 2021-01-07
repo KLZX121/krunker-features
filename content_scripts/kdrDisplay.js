@@ -49,7 +49,7 @@ function updateKdrDisplay(){
         } else {
             kdrDisplay.style.color = `${parseInt(kdrDisplay.innerHTML) >= result.kdrDisplay.target ? result.kdrDisplay.colours[0] : result.kdrDisplay.colours[1]}`
         }
-        kdrDisplay.style.left = `${result.kdrDisplay.position[0]}`;
-        kdrDisplay.style.top = `${result.kdrDisplay.position[1]}`;
+        kdrDisplay.style.left = result.kdrDisplay.position[0];
+        kdrDisplay.style.top = result.kdrDisplay.position[1];
     });
 }
