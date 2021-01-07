@@ -5,7 +5,7 @@ const chatList = document.getElementById('chatList'),
 //create display
 const connectedDisplay = document.createElement('span');
 connectedDisplay.setAttribute('id', 'connectedDisplay');
-connectedDisplay.setAttribute('style', 'position: fixed; font-size: xx-large; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
+connectedDisplay.setAttribute('style', 'position: fixed; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
 document.getElementById('gameUI').prepend(connectedDisplay);
 
 let i;
@@ -43,6 +43,7 @@ function updateConnectedDisplay(){
         connectedDisplay.style.color = results.connectedDisplay.colour;
         connectedDisplay.style.left = results.connectedDisplay.position[0];
         connectedDisplay.style.top = results.connectedDisplay.position[1];
+        connectedDisplay.style.fontSize = results.connectedDisplay.size;
         let updateInt = results.connectedDisplay.updateInt;
         if (!i) {
             i = setInterval(sendChatMsg, updateInt);

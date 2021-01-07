@@ -60,17 +60,20 @@ resetAllSettingsBtn.onclick = () => {
             newGameHotkey:'F4',
             winningDisplay: {
                 colours: ['#5699eb','#eb5656', '#909497'], //winning, losing, draw
-                position: ['40%','80%'] //left, top
+                position: ['40%','80%'], //left, top
+                size: '2em'
             },
             kdrDisplay: {
                 colours: ['#8BC34A', '#E74C3C'], //over min, under min
                 position: ['55%', '80%'], //left, top
-                target: 0
+                target: 0,
+                size: '2em'
             },
             connectedDisplay: {
                 colour: '#FFFFFF',
                 position: ['15%', '94%'],
-                updateInt: 5000
+                updateInt: 5000,
+                size: '2em'
             },
             toggles: [true, true, true, true], //menuTimer, winningDisplay, kdrDisplay, connectedDisplay
             css: 'default' 
@@ -205,7 +208,8 @@ const winningColour = document.getElementById('winningColour'),
     winDispHorPosSlider = document.getElementById('winDispHorPosSlider'),
     winDispHorPosNumber = document.getElementById('winDispHorPosNumber'),
     winDispVerPosSlider = document.getElementById('winDispVerPosSlider'),
-    winDispVerPosNumber = document.getElementById('winDispVerPosNumber');
+    winDispVerPosNumber = document.getElementById('winDispVerPosNumber'),
+    winningDisplaySize = document.getElementById('winningDisplaySize');
 
 winDispHorPosSlider.addEventListener('input', event => {
     winDispHorPosNumber.value = event.target.value;
@@ -225,7 +229,8 @@ const applyWinningDisplayBtn = document.getElementById('applyWinningDisplayBtn')
 applyWinningDisplayBtn.onclick = function applyWinningDisplay(){
     chrome.storage.sync.set({winningDisplay: {
         colours: [winningColour.value, losingColour.value, drawColour.value],
-        position: [`${winDispHorPosNumber.value}%`, `${winDispVerPosSlider.value}%`]
+        position: [`${winDispHorPosNumber.value}%`, `${winDispVerPosSlider.value}%`],
+        size: `${winningDisplaySize.value}em`
     }});
 };
 
@@ -234,7 +239,8 @@ const resetWinningDisplayBtn = document.getElementById('resetWinningDisplayBtn')
 resetWinningDisplayBtn.onclick = function resetWinningDisplay(){
     chrome.storage.sync.set({winningDisplay: {
         colours: ['#5699eb','#eb5656', '#909497'],
-        position: ['40%','80%']
+        position: ['40%','80%'],
+        size: '2em'
     }});
     setWinningDisplay();
 };
@@ -248,7 +254,8 @@ const aboveTargetColour = document.getElementById('aboveTargetColour'),
     kdrDispHorPosNumber = document.getElementById('kdrDispHorPosNumber'),
     kdrDispVerPosSlider = document.getElementById('kdrDispVerPosSlider'),
     kdrDispVerPosNumber = document.getElementById('kdrDispVerPosNumber'),
-    targetKdr = document.getElementById('targetKdr');
+    targetKdr = document.getElementById('targetKdr'),
+    kdrDisplaySize = document.getElementById('kdrDisplaySize');
 
 //sync sliders and numbers
 kdrDispHorPosSlider.addEventListener('input', event => {
@@ -270,7 +277,8 @@ applyKdrDisplayBtn.onclick = function applyKdrDisplay(){
     chrome.storage.sync.set({kdrDisplay: {
         colours: [aboveTargetColour.value, belowTargetColour.value],
         position: [`${kdrDispHorPosNumber.value}%`, `${kdrDispVerPosSlider.value}%`],
-        target: targetKdr.value
+        target: targetKdr.value,
+        size: `${kdrDisplaySize.value}em`
     }});
 };
 
@@ -280,7 +288,8 @@ resetKdrDisplayBtn.onclick = function resetKdrDisplay(){
     chrome.storage.sync.set({kdrDisplay: {
         colours: ['#8BC34A', '#E74C3C'],
         position: ['55%', '80%'],
-        target: 0
+        target: 0,
+        size: '2em'
     }});
     setKdrDisplay();
 };
@@ -293,7 +302,8 @@ const conDispHorPosSlider = document.getElementById('conDispHorPosSlider'),
     conDispVerPosSlider = document.getElementById('conDispVerPosSlider'),
     conDispVerPosNumber = document.getElementById('conDispVerPosNumber'),
     connectedColour =  document.getElementById('connectedColour'),
-    updateInt = document.getElementById('updateInt');
+    updateInt = document.getElementById('updateInt'),
+    connectedDisplaySize = document.getElementById('connectedDisplaySize');
 
 //sync sliders and numbers
 conDispHorPosSlider.addEventListener('input', event => {
@@ -315,7 +325,8 @@ applyConnectedDisplayBtn.onclick = function applyConnectedDisplay(){
     chrome.storage.sync.set({connectedDisplay: {
         colour: connectedColour.value,
         position: [`${conDispHorPosNumber.value}%`, `${conDispVerPosNumber.value}%`],
-        updateInt: updateInt.value
+        updateInt: updateInt.value,
+        size: `${connectedDisplaySize.value}em`
     }});
 };
 
@@ -325,7 +336,8 @@ resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
         connectedDisplay: {
             colour: '#FFFFFF',
             position: ['15%', '94%'],
-            updateInt: 5000
+            updateInt: 5000,
+            size: '2em'
         }
     });
     console.log(setConnectedDisplay);
@@ -390,6 +402,7 @@ function setAllValues(){
             winningColour.value = winningDisplay.colours[0];
             losingColour.value = winningDisplay.colours[1];
             drawColour.value =  winningDisplay.colours[2];
+            winningDisplaySize.value = parseFloat(winningDisplay.size);
         };
         setKdrDisplay = () => {
             const kdrDisplay = results.kdrDisplay;
@@ -400,6 +413,7 @@ function setAllValues(){
             aboveTargetColour.value =  kdrDisplay.colours[0];
             belowTargetColour.value = kdrDisplay.colours[1];
             targetKdr.value = kdrDisplay.target;
+            kdrDisplaySize.value = parseFloat(kdrDisplay.size);
         };
         setConnectedDisplay = () => {
             const connectedDisplay = results.connectedDisplay;
@@ -409,6 +423,7 @@ function setAllValues(){
             conDispVerPosNumber.value = parseInt(connectedDisplay.position[1]);
             connectedColour.value =  connectedDisplay.colour;
             updateInt.value = connectedDisplay.updateInt;
+            connectedDisplaySize.value = parseFloat(connectedDisplay.size);
         }
         setWinningDisplay();
         setKdrDisplay();

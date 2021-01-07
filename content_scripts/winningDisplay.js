@@ -8,7 +8,7 @@ const mapInfo = document.getElementById('mapInfo');
 //create display
 const winningDisplay = document.createElement('span');
 winningDisplay.setAttribute('id', 'winningDisplay');
-winningDisplay.setAttribute('style', 'position: fixed; font-size: xx-large; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
+winningDisplay.setAttribute('style', 'position: fixed; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
 document.getElementById('gameUI').prepend(winningDisplay);
 setDisplay('TEAM');
 
@@ -39,6 +39,7 @@ function setDisplay(status) {
         winningDisplay.style.display = result.toggles[1] ? 'inline' : 'none';
         winningDisplay.style.left = result.winningDisplay.position[0];
         winningDisplay.style.top = result.winningDisplay.position[1];
+        winningDisplay.style.fontSize = result.winningDisplay.size;
     });
 };
 
