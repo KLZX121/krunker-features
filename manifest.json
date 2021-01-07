@@ -16,7 +16,8 @@
 				"./content_scripts/findNewGame.js",
 				"./content_scripts/winningDisplay.js",
 				"./content_scripts/kdrDisplay.js",
-				"./content_scripts/cssSwapper.js"
+				"./content_scripts/cssSwapper.js",
+				"./content_scripts/connectedDisplay.js"
 			]
 		}
 	],

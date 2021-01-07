@@ -154,3 +154,8 @@ input[type="checkbox"]:checked + div {
 #recordHotkeyBtn {
     display: block;
 }
+
+/* connected display */
+#updateInt {
+    width: 5em;
+}

@@ -77,16 +77,16 @@
             <section id="menuTimer">
                 <h3>Menu Timer</h3>
                 
-                <input type="checkbox" id="toggleMenuTimer" name="toggleMenuTimer" class="toggle">                
+                <input type="checkbox" id="toggleMenuTimer" class="toggle">                
 
                 <div id="menuTimerColour">
                     <div>
                         <label for="normalColour">Normal Colour</label>
-                        <input type="color" name="normalTimeColour" id="normalTimeColour">
+                        <input type="color" id="normalTimeColour">
                     </div>
                     <div>
                         <label for="lowTimeColour">Low Time Colour</label>
-                        <input type="color" name="lowTimeColour" id="lowTimeColour">
+                        <input type="color" id="lowTimeColour">
                     </div>
 
                     <button id="applyMenuTimerColourBtn" class="applyResetBtn applyBtn">Apply</button>
@@ -98,29 +98,29 @@
             <section id="winningDisplay">
                 <h3>Winning Display</h3>
 
-                <input type="checkbox" id="toggleWinningDisplay" name="toggleWinningDisplay" class="toggle">
+                <input type="checkbox" id="toggleWinningDisplay" class="toggle">
 
                 <div id="winningDisplaySettings">
                     <div>
                         <label for="winningColour">Winning Colour</label>
-                        <input type="color" name="winningColour" id="winningColour">
+                        <input type="color" id="winningColour">
                     </div>
                     <div>
                         <label for="losingColour">Losing Colour</label>
-                        <input type="color" name="losingColour" id="losingColour">
+                        <input type="color" id="losingColour">
                     </div>
                     <div>
                         <label for="drawColour">Draw Colour</label>
-                        <input type="color" name="drawColour" id="drawColour">
+                        <input type="color" id="drawColour">
                     </div>
                     <div>
                         <label for="winDispHorPos">Horizontal Position</label>
-                        <input type="range" name="winDispHorPos" id="winDispHorPosSlider" min="0" max="100">
+                        <input type="range" id="winDispHorPosSlider" min="0" max="100">
                         <input type="number" id="winDispHorPosNumber" min="0" max="100">
                     </div>
                     <div>
                        <label for="winDispVerPos">Vertical Position</label>
-                        <input type="range" name="winDispVerPos" id="winDispVerPosSlider" min="0" max="100">
+                        <input type="range" id="winDispVerPosSlider" min="0" max="100">
                         <input type="number" id="winDispVerPosNumber" min="0" max="100"> 
                     </div>
                     
@@ -133,36 +133,67 @@
             <section id="kdrDisplay">
                 <h3>KDR Display</h3>
 
-                <input type="checkbox" id="toggleKdrDisplay" name="toggleKdrDisplay" class="toggle">
+                <input type="checkbox" id="toggleKdrDisplay" class="toggle">
 
                 <div id="kdrDisplaySettings">
                     <div>
                         <label for="aboveTargetColour">Above Target Colour</label>
-                        <input type="color" name="aboveTargetColour" id="aboveTargetColour">
+                        <input type="color" id="aboveTargetColour">
                     </div>
                     <div>
                         <label for="belowTargetColour">Below Target Colour</label>
-                        <input type="color" name="belowTargetColour" id="belowTargetColour">
+                        <input type="color" id="belowTargetColour">
                     </div>
                     <div>
                         <label for="targetKdr">Target KDR</label>
-                        <input type="number" id="targetKdr" name="targetKdr" min="0" step="0.1">
+                        <input type="number" id="targetKdr" min="0" step="0.1">
                     </div>
                     <div>
                        <label for="kdrDispHorPos">Horizontal Position</label>
-                        <input type="range" name="kdrDispHorPos" id="kdrDispHorPosSlider" min="0" max="100">
+                        <input type="range" id="kdrDispHorPosSlider" min="0" max="100">
                         <input type="number" id="kdrDispHorPosNumber" min="0" max="100">
  
                     </div>
                     <div>
                         <label for="kdrDispVerPos">Vertical Position</label>
-                        <input type="range" name="kdrDispVerPos" id="kdrDispVerPosSlider" min="0" max="100">
+                        <input type="range" id="kdrDispVerPosSlider" min="0" max="100">
                         <input type="number" id="kdrDispVerPosNumber" min="0" max="100">
                     </div>
                     
                     <button id="applyKdrDisplayBtn" class="applyResetBtn applyBtn">Apply</button>
                     <button id="resetKdrDisplayBtn" class="applyResetBtn resetBtn">Reset</button>
                 </div>
+
+            </section>
+
+            <section id="connectedDisplay">
+                <h3>Connected Display</h3>
+
+                <input type="checkbox" id="toggleConnectedDisplay" class="toggle">
+
+                <div id="connectedDisplaySettings">
+                    <div>
+                        <label for="connectedColour">Colour</label>
+                        <input type="color"id="connectedColour">
+                    </div>
+                    <div>
+                        <label for="updateInt">Update Interval (ms)</label>
+                        <input type="number" id="updateInt" min="100" step="100">
+                    </div>
+                    <div>
+                        <label for="conDispHorPos">Horizontal Position</label>
+                        <input type="range" id="conDispHorPosSlider" min="0" max="100">
+                        <input type="number" id="conDispHorPosNumber" min="0" max="100">
+                    </div>
+                    <div>
+                       <label for="conDispVerPos">Vertical Position</label>
+                        <input type="range" id="conDispVerPosSlider" min="0" max="100">
+                        <input type="number" id="conDispVerPosNumber" min="0" max="100"> 
+                    </div>
+                    
+                    <button id="applyConnectedDisplayBtn" class="applyResetBtn applyBtn">Apply</button>
+                    <button id="resetConnectedDisplayBtn" class="applyResetBtn resetBtn">Reset</button>
+                </div>               
 
             </section>
 

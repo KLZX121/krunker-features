@@ -1,0 +1,789 @@
+/* fIELDSoFpEAS#8494 */
+:root {
+	--menu-background-color: rgba(0, 0, 0, 0);
+	--menu-hover-background-color: rgba(0, 0, 0, 0.56);
+	--home-menu-text-color: rgb(0, 223, 255);
+	--navbar-blur: 0px;
+	--topbar-background-color: rgba(0, 0, 0, 0);
+	--top-bar-roundness: 8px;
+	--topbar-blur: 0px;
+	--menu-fps-color: rgb(123, 255, 0);
+	--menu-ping-color: rgb(123, 255, 0);
+	--home-progress-bar: rgba(33, 150, 243, 0);
+	--home-progress-bar-background: rgba(0, 0, 0, 0);
+	--mapinfo-color: rgb(0, 0, 0);
+	--mapinfo-display: block;
+	--terms-color: rgb(0, 115, 255);
+	--advertise-color: rgb(255, 182, 0);
+	--legal-links-display: block;
+	--menu-player-name-color: rgb(255, 255, 255);
+	--home-premium-color: rgb(251, 192, 45);
+	--home-verified-color: rgb(64, 196, 255);
+	--instructions-color: rgba(255, 255, 255, 0);
+	--show-logo: flex;
+	--logo-size: 0px;
+	--show-menu-profile-pic: none;
+	--level-icon-display: block;
+	--buy-kr-button-display: none;
+	--social-buttons-display: none;
+	--active-streams-display: none;
+	--free-kr-display: none;
+	--merch-button-display: none;
+	--menu-background: rgba(255, 255, 255, 0.38);
+	--menu-shadow: rgba(0, 0, 0, 0);
+	--menu-roundness: 32px;
+	--menu-blur: 15px;
+	--menu-text-color: rgb(0, 0, 0);
+	--menu-light-text-color: rgba(0, 0, 0, 0.72);
+	--slider-background: rgba(0, 0, 0, 0);
+	--slider-thumb-color: rgb(0, 255, 202);
+	--switch-thumb: rgb(0, 255, 255);
+	--input-text: rgb(0, 0, 0);
+	--input-field: rgba(255, 255, 255, 0.53);
+	--input-field-placeholder: rgba(255, 0, 0, 0);
+	--input-field-text: rgba(100, 80, 80, 0);
+	--scrollbar: rgba(0, 0, 0, 0);
+	--scrollbar-track: rgb(255, 255, 255);
+	--link: rgb(0, 142, 255);
+	--ranked-ready: rgb(33, 150, 243);
+	--ranked-ready-shadow: rgb(27, 118, 191);
+	--ranked-unready: rgb(255, 71, 71);
+	--ranked-unready-shadow: rgb(153, 43, 43);
+	--ranked-ready-border-color: rgb(50, 205, 50);
+	--ranked-unready-border-color: rgba(0, 0, 0, 0.2);
+	--ranked-text: rgb(255, 255, 255);
+	--presets-display: inline-block;
+	--input: rgba(255, 255, 255, 0.66);
+	--profile-tabs-background-color: rgba(0, 0, 0, 0.57);
+	--profile-tabs-selected-highlight-color: rgba(0, 0, 0, 0.7);
+	--profile-tabs-selected-hover-color: rgba(0, 0, 0, 0.2);
+	--progress-bar-filled: rgb(255, 255, 255);
+	--progress-bar-unfilled: rgb(36, 36, 36);
+	--progress-bar-text: rgb(0, 0, 0);
+	--timer-icon-display: none;
+	--health-icon-display: inline-block;
+	--ammo-icon-display: none;
+	--hud-background-color: rgba(255, 255, 255, 0.22);
+	--hud-text-color: rgba(0, 0, 0, 0.7);
+	--hud-bold-text-color: rgb(0, 0, 0);
+	--hud-roundness: 32px;
+	--hud-blur: 15px;
+	--leaderboard-me-color: rgb(0, 255, 213);
+	--leaderboard-team-color: rgba(40, 255, 0, 0.6);
+	--leaderboard-enemy-color: rgb(235, 86, 86);
+	--leaderboard-clan-color: rgb(0, 0, 0);
+	--leaderboard-verified-clan-color: rgb(251, 192, 45);
+	--premium-color: rgb(251, 192, 45);
+	--verified-color: rgb(64, 196, 255);
+	--enemy-score-color: rgb(235, 86, 86);
+	--team-score-color: rgb(40, 255, 0);
+	--fps-color: rgb(123, 255, 0);
+	--ping-color: rgb(123, 255, 0);
+	--votekick-keys-color: rgb(255, 182, 0);
+	--health-bar-roundness: 32px;
+	--main-button-background-color: rgba(0, 0, 0, 0);
+	--gradient-buttons-display: inline-block;
+	--main-button-gradient-color-1: rgb(0, 0, 0);
+	--main-button-gradient-color-2: rgb(0, 0, 0);
+	--main-button-shadow-color: rgb(0, 0, 0);
+	--main-button-hover-color: rgb(255, 255, 255);
+	--main-button-hover-shadow-color: rgb(179, 179, 179);
+	--main-button-text-color: rgb(0, 255, 202);
+	--main-button-corner-roundness: 32px;
+	--secondary-button: rgba(255, 255, 255, 0.29);
+	--secondary-button-hover: rgba(255, 255, 255, 0.07);
+	--secondary-button-text: rgb(255, 255, 255);
+	--secondary-button-roundness: 6px;
+	--chat-background-color: rgb(0, 0, 0);
+	--chat-input-background-color: rgba(0, 0, 0, 0.4);
+	--chat-text-color: rgba(0, 255, 234, 0.7);
+	--chat-bold-text-color: rgb(255, 255, 255);
+	--chat-you-color: rgb(0, 255, 255);
+	--chat-team-color: rgb(123, 255, 0);
+	--chat-enemy-color: rgb(255, 0, 0);
+	--chat-leave-text-color: rgb(252, 3, 236);
+	--chat-mic-display: none;
+	--chat-roundness: 32px;
+	--chat-input-roundness: 32px;
+	--chat-animate: none;
+	--class-name-color: rgb(255, 255, 255);
+	--class-weapon-color: rgba(0, 0, 0, 0.7);
+	--class-hp-value-color: rgb(0, 255, 12);
+	--class-hp-unit-color: rgb(0, 255, 23);
+	--class-level-color: rgb(0, 255, 234);
+	--class-progress-bar-color: rgb(255, 255, 255);
+	--class-progress-bar-background-color: rgb(0, 0, 0);
+}
+
+* {
+    color: var(--menu-text-color);
+}
+
+.progressBarInner {
+	background: var(--home-progress-bar) !important;
+}
+
+.imageButton {
+	display: var(--social-buttons-display) !important;
+}
+
+.headerBarRight .verticalSeparator {
+	display: var(--social-buttons-display) !important;
+}
+
+#streamContainer {
+	display: var(--active-streams-display) !important;
+}
+
+#claimHolder {
+	display: var(--free-kr-display) !important;
+}
+
+#merchHolder {
+	display: var(--merch-button-display) !important;
+}
+
+#mapInfo + div {
+	display: var(--legal-links-display) !important;
+}
+
+.button {
+	background: linear-gradient(var(--main-button-gradient-color-1), var(--main-button-gradient-color-2));
+	box-shadow: inset 0 -7px 0 0 var(--main-button-shadow-color) !important;
+	color: var(--main-button-text-color) !important;
+	border-radius: var(--main-button-corner-roundness) !important;
+}
+
+.button:hover {
+	background-color: var(--main-button-hover-color) !important;
+	box-shadow: inset 0 -7px 0 0 var(--main-button-hover-shadow-color) !important;
+}
+
+.accountButton {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.accountButton:hover {
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.mapLoadButton {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.mapLoadButton:hover {
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.updDisN {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.updDisN:hover {
+	background-color: var(--secondary-button-hover) !important;
+	transform: none;
+}
+
+.subPassChg {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.subPassChg:hover {
+	background-color: var(--secondary-button-hover) !important;
+	transform: none;
+}
+
+.creatorCodeBtn {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text);
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.creatorCodeBtn:hover {
+	background-color: var(--secondary-button-hover) !important;
+	filter: none !important;
+}
+
+.redVouchBtn {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.creatorCodeBtn:hover {
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.hostToggle {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.hostToggle:hover {
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.hostPresetBtn {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.hostPresetBtn:hover {
+	color: var(--secondary-button-text) !important;
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.quickJoin {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.quickJoin:hover {
+	background-color: var(--secondary-button-hover) !important;
+}
+
+.searchBtn {
+	background-color: var(--secondary-button) !important;
+	color: var(--secondary-button-text) !important;
+	border-radius: var(--secondary-button-roundness) !important;
+}
+
+.searchBtn:hover {
+	background-color: var(--secondary-button-hover) !important;
+	transform: none !important;
+	filter: none !important;
+}
+
+.joinQueue {
+	color: var(--ranked-text) !important;
+	background-color: var(--ranked-ready) !important;
+	box-shadow: inset 0 -10px 0 0 var(--ranked-ready-shadow) !important;
+}
+
+.joinQueue:hover {
+	box-shadow: inset 0 -7px 0 0 var(--ranked-ready-shadow) !important;
+}
+
+.jQR {
+	background-color: var(--ranked-unready) !important;
+	box-shadow: inset 0 -10px 0 0 var(--ranked-unready-shadow) !important;
+}
+
+.jQR:hover {
+	box-shadow: inset 0 -7px 0 0 var(--ranked-unready-shadow) !important;
+}
+
+.krSocial {
+	display: var(--buy-kr-button-display) !important;
+}
+
+#menuLevelIcon {
+	display: var(--level-icon-display) !important;
+}
+
+.sliderVal {
+	color: var(--input-text) !important;
+	background: var(--input) !important;
+}
+
+.sliderM {
+	background-color: var(--slider-background) !important;
+}
+
+.sliderM::-webkit-slider-thumb {
+	background-color: var(--input) !important;
+}
+
+input:checked+.slider {
+	background-color: var(--input) !important;
+}
+
+.slider:before {
+	background-color: var(--switch-thumb) !important;
+}
+
+input:checked+.optCheck {
+	background-color: var(--input) !important;
+}
+
+.xpBar {
+	background-color: var(--progress-bar-unfilled) !important;
+}
+
+.xpBarB {
+	background-color: var(--progress-bar-filled) !important;
+}
+
+.xpBarV {
+	color: var(--progress-bar-text) !important;
+}
+
+.inputGrey2 {
+	background: var(--input-field) !important;
+	color: var(--input-field-text) !important;
+}
+
+.inputGrey2::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+.formInput {
+	background: var(--input-field) !important;
+}
+
+.formInput::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+#passCode {
+	background: var(--input-field) !important;
+}
+
+#passCode::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+#presetSelect {
+	background: var(--input-field) !important;
+}
+
+#presetSelect::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+#customSnameTeam1 {
+	background: var(--input-field) !important;
+}
+
+#customSnameTeam1::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+#customSnameTeam2 {
+	background: var(--input-field) !important;
+}
+
+#customSnameTeam2::placeholder {
+	color: var(--input-field-placeholder) !important;
+}
+
+.sliderM::-webkit-slider-thumb {
+	background-color: var(--slider-thumb-color) !important;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-radius: 0;
+	background-color: var(--scrollbar-track) !important;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar) !important;
+}
+
+#menuWindow {
+	background-color: var(--menu-background) !important;
+	box-shadow: 0 9px 0 0 var(--menu-shadow) !important;
+	border-radius: var(--menu-roundness) !important;
+}
+
+.serverHeader {
+	background-color: var(--menu-background) !important;
+	border-radius: var(--menu-roundness) !important;
+}
+
+.settingsHeader {
+	background-color: var(--menu-background) !important;
+	border-radius: var(--menu-roundness) !important;
+}
+
+.settingPreset {
+	display: var(--presets-display) !important;
+}
+
+#timerIcon {
+	display: var(--timer-icon-display) !important;
+}
+
+#challIcon {
+	display: var(--health-icon-display) !important;
+}
+
+#ammoIcon {
+	display: var(--ammo-icon-display) !important;
+}
+
+a {
+	color: var(--link);
+}
+
+a:visited {
+	color: var(--link);
+}
+
+a:active {
+	color: var(--link);
+}
+
+.chatItem {
+	color: var(--chat-bold-text-color) !important;
+	background-color: var(--chat-background-color) !important;
+	border-radius: var(--chat-roundness);
+}
+
+.chatMsg {
+	color: var(--chat-text-color) !important;
+}
+
+#voiceDisplay {
+	display: var(--chat-mic-display) !important;
+}
+
+#chatInput {
+	color: var(--chat-text-color) !important;
+	border-radius: var(--chat-input-roundness);
+}
+
+.chatMsg[style*='color: #fc03ec'] {
+	color: var(--chat-leave-text-color) !important;
+}
+
+.leaderName, .newLeaderName, .newLeaderNameF, .endTableN[style*='color: #eb5656;'] {
+	color: var(--leaderboard-enemy-color) !important;
+}
+
+.leaderName span, .newLeaderName span, .leaderNameM span, .newLeaderNameM span, .leaderNameF span, .newLeaderNameF span {
+	color: var(--leaderboard-clan-color) !important;
+}
+
+.leaderName span[style*='color:#FBC02D'], .newLeaderName span[style*='color:#FBC02D'], .leaderNameM span[style*='color:#FBC02D'], .newLeaderNameM span[style*='color:#FBC02D'], .newLeaderNameF span[style*='color:#FBC02D'] {
+	color: var(--leaderboard-verified-clan-color) !important;
+}
+
+.leaderNameM, .newLeaderNameM, .endTableN[style*='color: #fff;'] {
+	color: var(--leaderboard-me-color) !important;
+}
+
+.leaderNameF, .newLeaderNameF, .endTableN[style*='color: rgba(255,255,255,0.6);'] {
+	color: var(--leaderboard-team-color) !important;
+}
+
+.countIcon, #leaderDisplay, #ammoDisplay, #timerDisplay, #teamScores, #voteToKick, #hudClassIcon, #healthValueHolder {
+	background-color: var(--hud-background-color) !important;
+	border-radius: var(--hud-roundness);
+}
+
+#ammoVal, #curGameInfo, #timerVal, #healthValue, #reloadMsg {
+	color: var(--hud-bold-text-color) !important;
+}
+
+#killsVal, #deathsVal, #streakVal, #myScoreVal, #ammoMax, .weapKey, #pingDisplay, #fpsDisplay, #ingressDisplay, #egressDisplay, #pingText, #ingressPacketCount, #ingressDataSize, #egressPacketCount, #egressDataSize, #curGameInfo div, .tScoreT, #voteKickNum, #voteKickName, #voteKickKeys, #maxHP {
+	color: var(--hud-text-color) !important;
+}
+
+#ingameFPS {
+	color: var(--fps-color) !important;
+}
+
+#voteKickKeys span {
+	color: var(--votekick-keys-color) !important;
+}
+
+.partyAvatar {
+	border-color: var(--ranked-unready-border-color);
+}
+
+.partyAvatar.ready {
+	border-color: var(--ranked-ready-border-color);
+}
+
+#chatInput {
+	background-color: var(--chat-input-background-color) !important;
+}
+
+.chatMsg span[style*='color:#eb5656'] {
+	color: var(--chat-enemy-color) !important;
+}
+.chatMsg span[style*='color: #9eeb56'] {
+	color: var(--chat-team-color) !important;
+}
+
+.chatMsg span[style*='color:#fff'] {
+	color: var(--chat-you-color) !important;
+}
+
+.menuItem {
+	background: var(--menu-background-color) !important;
+}
+
+.headerBar {
+	background-color: var(--topbar-background-color) !important;
+}
+
+#instructions {
+	color: var(--instructions-color) !important;
+}
+
+.progressBar {
+	background-color: var(--home-progress-bar-background) !important;
+}
+
+.menuItem:hover {
+	background: var(--menu-hover-background-color) !important;
+}
+
+.menuItem .menuItemTitle {
+	color: var(--home-menu-text-color) !important;
+}
+
+#menuFPS {
+	color: var(--menu-fps-color) !important;
+}
+
+#mapInfo {
+	color: var(--mapinfo-color) !important;
+	display: var(--mapinfo-display) !important;
+}
+
+.terms {
+	color: var(--terms-color) !important;
+}
+
+.standout {
+	color: var(--advertise-color) !important;
+}
+
+#menuPingIcon {
+	color: var(--menu-ping-color) !important;
+}
+
+#pingIcon {
+	color: var(--ping-color) !important;
+}
+
+.tScoreC {
+    background-color: var(--enemy-score-color) !important;
+}
+
+.tScoreC.you {
+    background-color: var(--team-score-color) !important;
+}
+
+#menuMiniProfilePic {
+	display: var(--show-menu-profile-pic) !important;
+}
+
+#gameNameHolder {
+	display: var(--show-logo) !important;
+}
+
+.classCard {
+	color: var(--class-name-color) !important;
+}
+
+.classWeap {
+	color: var(--class-weapon-color) !important;
+}
+
+.classHP {
+	color: var(--class-hp-value-color) !important;
+}
+
+.classHP span {
+	color: var(--class-hp-unit-color) !important;
+}
+
+.classLvl {
+	color: var(--class-level-color) !important;
+}
+
+.clsXPBarC {
+	background-color: var(--class-progress-bar-color) !important;
+}
+
+.classXPBar {
+	background-color: var(--class-progress-bar-background-color) !important;
+}
+
+.rankedType, .rankedELOTxt {
+	color: var(--ranked-text) !important;
+}
+
+.menuTabsNew {
+    background-color: var(--profile-tabs-background-color);
+}
+
+.tabANew {
+    box-shadow: inset 0 -5px var(--profile-tabs-selected-highlight-color);
+}
+
+.menuTabNew:hover {
+    box-shadow: inset 0 -5px var(--profile-tabs-hover-highlight-color);
+}
+
+span[style*='color: rgba(0, 0, 0, 0.8)'], .menuTabNew {
+	color: var(--menu-text-color) !important;
+}
+
+.settName, .settNameSmall, span[style*='color: rgba(0, 0, 0, 0.5)'], #accResp, #requiresRestart {
+    color: var(--menu-light-text-color) !important;
+}
+
+.hpBSeg, .healthBarSeg {
+	border-radius: var(--health-bar-roundness);
+}
+
+.headerBarRight {
+    border-radius: 0 0 0 var(--top-bar-roundness);
+}
+
+.headerBarLeft {
+	border-radius: 0 0 var(--top-bar-roundness) 0;
+}
+
+#uiBase.onMenu #chatHolder {
+    transition: var(--chat-animate);
+}
+
+#mainLogo {
+    height: var(--logo-size);
+}
+
+.menuClassPlayerName {
+    color: var(--menu-player-name-color);
+}
+
+#leaderContainer i[style*="color:#FBC02D"] {
+	color: var(--premium-color) !important;
+}
+
+#leaderContainer i[style*="color:#40C4FF"] {
+	color: var(--verified-color) !important;
+}
+
+.menuClassPlayerPremium {
+	color: var(--home-premium-color) !important;
+}
+
+.menuClassPlayerVerified {
+	color: var(--home-verified-color) !important;
+}
+
+#menuPingText, #menuFPSDisplay {
+	color: var(--topbar-counters-text-color);
+}
+
+.headerBar div {
+    color: var(--topbar-text-color);
+}
+
+#menuKRCount {
+    color: var(--topbar-light-text-color);
+}
+
+#mLevelCont {
+    color: var(--topbar-text-color);;
+    background-color: var(--topbar-level-background-color);
+}
+
+.settingsBtn {
+	color: var(--input-text);
+	background-color: var(--input);
+}
+@font-face {font-family: gamefont; src: url(https://raw.githubusercontent.com/South-Paw/typeface-vag-rounded/master/files/vag-rounded-400.woff2);}
+@font-face {font-family: headerfont; src: url(https://raw.githubusercontent.com/South-Paw/typeface-vag-rounded/master/files/vag-rounded-400.woff2);}
+
+#seasonLabel {
+    display: none;
+}
+
+#newsHolder{
+display:none!important;
+}
+
+#menuItemContainer {
+    width: fit-content;
+    height: min-content;
+    bottom: 250px;
+    top: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+}
+
+.menuItem {
+    align-items: center;
+    background: transparent;
+    padding-bottom: 5px;
+    padding-left: 22px;
+    padding-right: 22px;
+    pointer-events: none;
+}
+
+.menuItem:hover {
+    background: transparent;
+    color: #00FFFF;
+    border-left: none;
+}
+
+.menuItem:active {
+    background: transparent;
+    color: #fff;
+}
+
+.menuItem .menuItemTitle {
+    margin-top: 0;
+    color: #00FFFF !important;
+    font-size: 18px !important;
+    text-transform: var(--text-transform);
+    pointer-events: all;
+    transition: all .2s;
+}
+
+.standout {
+    font-size: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.standout::before {
+content: 'CSS made by fIeldSoFpEAS8494';
+    font-size: 18px;
+    margin-right: 22px;
+    color: rgba(4, 0, 255);
+    visibility: visible;
+}
+
+.standout::after {
+    content: 'Credits to AcidEyezZz7777 for help';
+    font-size: 15px;
+    pointer-events: all;
+    color: rgba(255, 255, 0, 0.5);
+    visibility: visible;
+}
+
+.menuItemTitle:hover {
+    color: var(--accent-color) !important;
+}
+
+.menuItem .menuItemIcon {
+    position: relative;
+    width: 100%;
+    height: 45%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+}

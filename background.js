@@ -12,7 +12,12 @@ chrome.runtime.onInstalled.addListener(()=>{
             position: ['55%', '80%'], //left, top
             target: 0
         },
-        toggles: [true, true, true], //menuTimer, winningDisplay, kdrDisplay
+        connectedDisplay: {
+            colour: '#FFFFFF',
+            position: ['15%', '94%'],
+            updateInt: 5000
+        },
+        toggles: [true, true, true, true], //menuTimer, winningDisplay, kdrDisplay, connectedDisplay
         css: 'default'
     });
 });
