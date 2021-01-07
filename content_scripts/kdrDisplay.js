@@ -42,7 +42,8 @@ observeKdr.observe(deathsVal, { childList: true });
 
 function updateKdrDisplay(){
     
-    chrome.storage.sync.get('kdrDisplay', result => {
+    chrome.storage.sync.get(['kdrDisplay', 'toggles'], result => {
+        kdrDisplay.style.display = result.toggles[2] ? 'inline' : 'none';
         if (kdrDisplay.innerHTML === 'KDR' || kdrDisplay.innerHTML.startsWith('+')) {
             kdrDisplay.style.color = result.kdrDisplay.colours[0]
         } else {

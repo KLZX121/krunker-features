@@ -19,21 +19,24 @@ const observeMapInfo = new MutationObserver(() => {
 observeMapInfo.observe(mapInfo, childListMutation);
 
 const observeEnd = new MutationObserver(()=>{
-    chrome.storage.sync.get('toggles', result => {
-        winningDisplay.style.display = result.toggles[1] ? 'inline' : 'none';
-    });
     if (menuTimer.innerHTML.startsWith('N')) {
         setDisplay('TEAM');
+    } else {
+        setDisplay('update');
     }
 })
 observeEnd.observe(menuTimer, { childList: true });
 
 //set display
 function setDisplay(status) {
-    winningDisplay.innerHTML = status;
-    chrome.storage.sync.get('winningDisplay', result => {
-        const colours = result.winningDisplay.colours
-        winningDisplay.style.color = `${status === 'Winning' ? colours[0] : status === 'Losing' ? colours[1] : colours[2]}`
+        
+    chrome.storage.sync.get(['winningDisplay', 'toggles'], result => {
+        if (status !== 'update'){
+            winningDisplay.innerHTML = status;
+            const colours = result.winningDisplay.colours
+            winningDisplay.style.color = `${status === 'Winning' ? colours[0] : status === 'Losing' ? colours[1] : colours[2]}`
+        };
+        winningDisplay.style.display = result.toggles[1] ? 'inline' : 'none';
         winningDisplay.style.left = `${result.winningDisplay.position[0]}`;
         winningDisplay.style.top = `${result.winningDisplay.position[1]}`;
     });
