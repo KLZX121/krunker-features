@@ -24,7 +24,7 @@ const observeChatList = new MutationObserver(mutations=>{
 });
 
 function sendChatMsg(){
-    if (document.activeElement === chatInput) return;
+    if (document.activeElement !== document.querySelector('body')) return;
     chatInput.value = '/c';
     chatInput.focus();
     const ke = new KeyboardEvent('keydown', {

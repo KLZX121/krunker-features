@@ -7,7 +7,7 @@ document.getElementById('inGameUI').prepend(ammoDisplay);
 
 //replace ammoDisplay
 const  ammoBacking = document.createElement('div');
-ammoBacking.style = 'font-size: 35px; background-color: rgba(0, 0, 0, 0.3); padding: 7px; padding-top: 8px; padding-left: 20px;';
+ammoBacking.style = 'font-size: 35px; background-color: rgba(0, 0, 0, 0.3); padding: 7px; padding-top: 8px; padding-left: 20px; border-radius: 6px';
 g('bottomRight').appendChild(ammoBacking);
 ammoBacking.append(g('ammoVal'), ' ', g('ammoMax'), g('ammoIcon'));
 
