@@ -67,8 +67,8 @@ input[type="number"], input[type="text"]{
 }
 input[type="range"] {
     position: absolute;
-    left: 38%;
-    width: 13em;
+    left: 42%;
+    width: 12em;
 }
 input[type="color"]:hover {
     background-color: white;

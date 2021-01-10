@@ -5,7 +5,7 @@ const chatList = document.getElementById('chatList'),
 //create display
 const connectedDisplay = document.createElement('span');
 connectedDisplay.setAttribute('id', 'connectedDisplay');
-connectedDisplay.setAttribute('style', 'position: fixed; background: rgba(0, 0, 0, 0.5); padding: 0.5em; border-radius: 0.5em');
+connectedDisplay.setAttribute('style', 'position: fixed; padding: 0.5em; border-radius: 0.5em');
 document.getElementById('gameUI').prepend(connectedDisplay);
 
 let i;
@@ -38,13 +38,14 @@ function updateConnectedDisplay(){
     if (!connectedDisplay.innerHTML){
         connectedDisplay.innerHTML = 'Connected';
     }
-    chrome.storage.sync.get(['connectedDisplay', 'toggles'], results => {
-        connectedDisplay.style.display = results.toggles[3] ? 'inline' : 'none';
-        connectedDisplay.style.color = results.connectedDisplay.colour;
-        connectedDisplay.style.left = results.connectedDisplay.position[0];
-        connectedDisplay.style.top = results.connectedDisplay.position[1];
-        connectedDisplay.style.fontSize = results.connectedDisplay.size;
-        let updateInt = results.connectedDisplay.updateInt;
+    chrome.storage.sync.get(['connectedDisplay', 'toggles'], result => {
+        connectedDisplay.style.display = result.toggles[3] ? 'inline' : 'none';
+        connectedDisplay.style.color = result.connectedDisplay.colour;
+        connectedDisplay.style.left = result.connectedDisplay.position[0];
+        connectedDisplay.style.top = result.connectedDisplay.position[1];
+        connectedDisplay.style.fontSize = result.connectedDisplay.size;
+        connectedDisplay.style.background = `rgba(0, 0, 0, ${result.connectedDisplay.opacity})`;
+        let updateInt = result.connectedDisplay.updateInt;
         if (!i) {
             i = setInterval(sendChatMsg, updateInt);
         };

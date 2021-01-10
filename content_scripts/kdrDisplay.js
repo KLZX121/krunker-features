@@ -5,7 +5,7 @@ const killsVal = document.getElementById('killsVal'),
 const kdrDisplay = document.createElement('span');
 document.getElementById('gameUI').prepend(kdrDisplay);
 kdrDisplay.setAttribute('id', 'kdrDisplay');
-kdrDisplay.setAttribute('style', 'position: fixed; background: rgba(0, 0, 0, 0.5); box-sizing: border-box; padding: 0.5em; border-radius: 0.5em');
+kdrDisplay.setAttribute('style', 'position: fixed; box-sizing: border-box; padding: 0.5em; border-radius: 0.5em');
 kdrDisplay.innerHTML = 'KDR';
 updateKdrDisplay();
 
@@ -52,5 +52,6 @@ function updateKdrDisplay(){
         kdrDisplay.style.left = result.kdrDisplay.position[0];
         kdrDisplay.style.top = result.kdrDisplay.position[1];
         kdrDisplay.style.fontSize = result.kdrDisplay.size;
+        kdrDisplay.style.background = `rgba(0, 0, 0, ${result.kdrDisplay.opacity})`;
     });
 }

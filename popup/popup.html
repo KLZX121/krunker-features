@@ -134,6 +134,24 @@
                             <option value="3"></option>
                         </datalist>
                     </div>
+                    <div>
+                        <label for="winningDisplayOpacity">Background Opacity</label>
+                        <input type="range" id="winningDisplayOpacity" min="0" max="1" step="0.1" list="opacityMarks">
+
+                        <datalist id="opacityMarks">
+                            <option value="0"></option>
+                            <option value="0.1"></option>
+                            <option value="0.2"></option>
+                            <option value="0.3"></option>
+                            <option value="0.4"></option>
+                            <option value="0.5"></option>
+                            <option value="0.6"></option>
+                            <option value="0.7"></option>
+                            <option value="0.8"></option>
+                            <option value="0.9"></option>
+                            <option value="1"></option>
+                        </datalist>
+                    </div>
                     
                     <button id="applyWinningDisplayBtn" class="applyResetBtn applyBtn">Apply</button>
                     <button id="resetWinningDisplayBtn" class="applyResetBtn resetBtn">Reset</button>
@@ -174,6 +192,10 @@
                         <label for="kdrDisplaySize">Size</label>
                         <input type="range" id="kdrDisplaySize" min="1" max="3" step="0.5" list="sizeMarks">
                     </div>
+                    <div>
+                        <label for="kdrDisplayOpacity">Background Opacity</label>
+                        <input type="range" id="kdrDisplayOpacity" min="0" max="1" step="0.1" list="opacityMarks">
+                    </div>
                     
                     <button id="applyKdrDisplayBtn" class="applyResetBtn applyBtn">Apply</button>
                     <button id="resetKdrDisplayBtn" class="applyResetBtn resetBtn">Reset</button>
@@ -208,6 +230,10 @@
                     <div>
                         <label for="connectedDisplaySize">Size</label>
                         <input type="range" id="connectedDisplaySize" min="1" max="3" step="0.5" list="sizeMarks">
+                    </div>
+                    <div>
+                        <label for="connectedDisplayOpacity">Background Opacity</label>
+                        <input type="range" id="connectedDisplayOpacity" min="0" max="1" step="0.1" list="opacityMarks">
                     </div>
                     
                     <button id="applyConnectedDisplayBtn" class="applyResetBtn applyBtn">Apply</button>
