@@ -1,10 +1,10 @@
 <h1>Krunker Features</h1>
 <p>A chrome extension that provides helpful features to Krunker. Initially made for a simple timer on the menu that shows game time, based on the same feature in Scuffed Client.</p>
-<p>Report bugs, suggest features, get a sneakpeek at upcoming features, get notified of new releases, and chat about the extension in <a href="https://discord.com/invite/CjdmDQn">my Discord server</a>. Get the <em>@Extension</em> role when you join.</p>
+<p>Report bugs, suggest features, get a sneakpeek at upcoming features, get notified of new releases, and chat about the extension in <a href="https://discord.com/invite/CjdmDQn" target="_blank">my Discord server</a>. Get the <em>@Extension</em> role when you join.</p>
 
 <h2>Installation</h2>
 <ol>
-	<li>Go to the <a href="https://github.com/KLZX121/krunker-features/releases">latest release</a> in the side menu on the right </li>
+	<li>Go to the <a href="https://github.com/KLZX121/krunker-features/releases" target="_blank">latest release</a> in the side menu on the right </li>
 	<li>Download the source code as a .zip file</li>
 	<li>Go into manage extensions in your browser (chrome://extensions/)</li>
 	<li>Turn on Developer Mode in the top right</li>
