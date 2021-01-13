@@ -14,7 +14,7 @@ const readMe = g('readMe');
 
 chrome.runtime.getPackageDirectoryEntry(root => { 
     const rootReader = root.createReader();
-    rootReader.readEntries(result => { //gets css files
+    rootReader.readEntries(result => {
         const readMeFile = result.filter(file => file.name === 'README.md')[0];
         readMeFile.file(file => {
             const fileReader = new FileReader();
@@ -53,38 +53,41 @@ exportSettings.onclick = () => {
         settingsText.value = JSON.stringify(result);
     })
 }
+
+function resetSettings(section, setFunction){
+    chrome.runtime.getPackageDirectoryEntry(root => { 
+
+        const rootReader = root.createReader();
+        rootReader.readEntries(result => {
+
+            const targetFile = result.filter(file => file.name === 'defaultSettings.json')[0];
+            targetFile.file(file => {
+
+                const fileReader = new FileReader();
+                fileReader.onload = e => {
+                    const data = JSON.parse(e.target.result);
+                    if (section){
+                        const sectionSettings = new Object();
+                        sectionSettings[section] = data[section];
+                        chrome.storage.sync.set(sectionSettings);
+                        setFunction();
+                    } else {
+                        chrome.storage.sync.clear();
+                        chrome.storage.sync.set(data, setAllValues);
+                        setAllValues();
+                    }
+                    
+                };
+                fileReader.readAsText(file);
+            });
+        });
+    });
+};
 resetAllSettingsBtn.onclick = () => {
     if (window.confirm('Reset ALL SETTINGS to default?')) {
-        chrome.storage.sync.clear();
-        chrome.storage.sync.set({
-        
-            menuTimerColours: ["#00FFFF","#FFA500"],
-            newGameHotkey:'F4',
-            winningDisplay: {
-                colours: ['#5699eb','#eb5656', '#909497'], //winning, losing, draw
-                position: ['40%','80%'], //left, top
-                size: '2em',
-                opacity: 0.5
-            },
-            kdrDisplay: {
-                colours: ['#8BC34A', '#E74C3C'], //over min, under min
-                position: ['55%', '80%'], //left, top
-                target: 0,
-                size: '2em',
-                opacity: 0.5
-            },
-            connectedDisplay: {
-                colour: '#FFFFFF',
-                position: ['15%', '94%'],
-                updateInt: 5000,
-                size: '2em',
-                opacity: 0.5
-            },
-            toggles: [true, true, true, true], //menuTimer, winningDisplay, kdrDisplay, connectedDisplay
-            css: 'default' 
-        }, setAllValues)
+        resetSettings();
     }
-}
+};
 
 //======================Tabs===========================================
 
@@ -142,16 +145,6 @@ selectCss.oninput = () => {
     chrome.storage.sync.set({css: selectCss.value});
 };
 
-/* reads a file
-cssFileBtn.onclick = () => g('cssFileInput').click();
-cssFileInput.oninput = () => {
-    const file = cssFileInput.files[0];
-    let reader = new FileReader();
-    reader.onload = e => {
-        const data = e.target.result;
-    };
-    reader.readAsText(file); 
-}*/
 //======================Menu Timer=====================================
 
 //initialise
@@ -167,11 +160,7 @@ applyMenuTimerColourBtn.onclick = function applyMenuTimerColour(){
 //reset
 const resetMenuTimerColourBtn = g('resetMenuTimerColourBtn');
 resetMenuTimerColourBtn.onclick = function resetMenuTimerColour(){
-    chrome.storage.sync.set({menuTimerColours: ["#00FFFF", "#FFA500"]});
-    chrome.storage.sync.get('menuTimerColours', result => {
-        normalTimeColour.value = result.menuTimerColours[0];
-        lowTimeColour.value = result.menuTimerColours[1];
-    })
+    resetSettings('menuTimerColours', setMenuTimer);
 };
 
 //======================Find New Game==================================
@@ -244,13 +233,7 @@ applyWinningDisplayBtn.onclick = function applyWinningDisplay(){
 //reset
 const resetWinningDisplayBtn = g('resetWinningDisplayBtn');
 resetWinningDisplayBtn.onclick = function resetWinningDisplay(){
-    chrome.storage.sync.set({winningDisplay: {
-        colours: ['#5699eb','#eb5656', '#909497'],
-        position: ['40%','80%'],
-        size: '2em',
-        opacity: 0.5
-    }});
-    setWinningDisplay();
+    resetSettings('winningDisplay', setWinningDisplay);
 };
 
 //======================KDR Display====================================
@@ -295,14 +278,7 @@ applyKdrDisplayBtn.onclick = function applyKdrDisplay(){
 //reset
 const resetKdrDisplayBtn = g('resetKdrDisplayBtn');
 resetKdrDisplayBtn.onclick = function resetKdrDisplay(){
-    chrome.storage.sync.set({kdrDisplay: {
-        colours: ['#8BC34A', '#E74C3C'],
-        position: ['55%', '80%'],
-        target: 0,
-        size: '2em',
-        opacity: 0.5
-    }});
-    setKdrDisplay();
+    resetSettings('kdrDisplay', setKdrDisplay);
 };
 
 //======================Connected Display==============================
@@ -345,17 +321,7 @@ applyConnectedDisplayBtn.onclick = function applyConnectedDisplay(){
 
 const resetConnectedDisplayBtn = g('resetConnectedDisplayBtn');
 resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
-    chrome.storage.sync.set({
-        connectedDisplay: {
-            colour: '#FFFFFF',
-            position: ['15%', '94%'],
-            updateInt: 5000,
-            size: '2em',
-            opacity: 0.5
-        }
-    });
-    console.log(setConnectedDisplay);
-    setConnectedDisplay();
+    resetSettings('connectedDisplay', setConnectedDisplay);
 };
 
 //======================Toggles========================================
@@ -363,12 +329,14 @@ resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
 const toggleMenuTimer = g('toggleMenuTimer'),
     toggleWinningDisplay = g('toggleWinningDisplay'),
     toggleKdrDisplay = g('toggleKdrDisplay'),
-    toggleConnectedDisplay = g('toggleConnectedDisplay');
+    toggleConnectedDisplay = g('toggleConnectedDisplay'),
+    toggleReload = g('toggleReload');
 
 toggleMenuTimer.onchange = toggle;
 toggleWinningDisplay.onchange = toggle;
 toggleKdrDisplay.onchange = toggle;
 toggleConnectedDisplay.onchange = toggle;
+toggleReload.onchange = toggle;
 
 function toggle(event){
     chrome.storage.sync.get('toggles', result => {
@@ -383,6 +351,8 @@ function toggle(event){
                     return 2;
                 case 'toggleConnectedDisplay': 
                     return 3;
+                case 'toggleReload': 
+                    return 4;
             };
         };
         const id = getId(event.target.id);
@@ -392,59 +362,69 @@ function toggle(event){
 }
 
 //======================SET ALL VALUES=================================
-let setWinningDisplay, setKdrDisplay, setConnectedDisplay;
 
+setAllValues();
+function setMenuTimer(){
+    chrome.storage.sync.get('menuTimerColours', result => {
+        normalTimeColour.value = result.menuTimerColours[0];
+        lowTimeColour.value = result.menuTimerColours[1];
+    });
+};
+function setWinningDisplay(){
+    chrome.storage.sync.get('winningDisplay', result => {
+        const winningDisplay = result.winningDisplay;
+        winDispHorPosSlider.value = parseInt(winningDisplay.position[0]);
+        winDispHorPosNumber.value = parseInt(winningDisplay.position[0]);
+        winDispVerPosSlider.value = parseInt(winningDisplay.position[1]);
+        winDispVerPosNumber.value = parseInt(winningDisplay.position[1]);
+        winningColour.value = winningDisplay.colours[0];
+        losingColour.value = winningDisplay.colours[1];
+        drawColour.value =  winningDisplay.colours[2];
+        winningDisplaySize.value = parseFloat(winningDisplay.size);
+        winningDisplayOpacity.value = winningDisplay.opacity;
+    });
+};
+function setKdrDisplay(){
+    chrome.storage.sync.get('kdrDisplay', result => {
+        const kdrDisplay = result.kdrDisplay;
+        kdrDispHorPosSlider.value = parseInt(kdrDisplay.position[0]);
+        kdrDispHorPosNumber.value = parseInt(kdrDisplay.position[0]);
+        kdrDispVerPosSlider.value = parseInt(kdrDisplay.position[1]);
+        kdrDispVerPosNumber.value = parseInt(kdrDisplay.position[1]);
+        aboveTargetColour.value =  kdrDisplay.colours[0];
+        belowTargetColour.value = kdrDisplay.colours[1];
+        targetKdr.value = kdrDisplay.target;
+        kdrDisplaySize.value = parseFloat(kdrDisplay.size);
+        kdrDisplayOpacity.value = kdrDisplay.opacity;
+    });
+};
+function setConnectedDisplay(){
+    chrome.storage.sync.get('connectedDisplay', result => {
+        const connectedDisplay = result.connectedDisplay;
+        conDispHorPosSlider.value = parseInt(connectedDisplay.position[0]);
+        conDispHorPosNumber.value = parseInt(connectedDisplay.position[0]);
+        conDispVerPosSlider.value = parseInt(connectedDisplay.position[1]);
+        conDispVerPosNumber.value = parseInt(connectedDisplay.position[1]);
+        connectedColour.value =  connectedDisplay.colour;
+        updateInt.value = connectedDisplay.updateInt;
+        connectedDisplaySize.value = parseFloat(connectedDisplay.size);
+        connectedDisplayOpacity.value = connectedDisplay.opacity;
+    });
+};
 function setAllValues(){
     chrome.storage.sync.get(null, result=>{
         //newGame hotkey
         hotkeyDisplay.innerHTML = result.newGameHotkey;
-        //menuTimer
-        normalTimeColour.value = result.menuTimerColours[0];
-        lowTimeColour.value = result.menuTimerColours[1];
         //set toggles
         const toggles = result.toggles;
         toggleMenuTimer.checked = toggles[0];
         toggleWinningDisplay.checked = toggles[1];
         toggleKdrDisplay.checked = toggles[2];
         toggleConnectedDisplay.checked = toggles[3];
-        setWinningDisplay = () => {
-            const winningDisplay = result.winningDisplay;
-            winDispHorPosSlider.value = parseInt(winningDisplay.position[0]);
-            winDispHorPosNumber.value = parseInt(winningDisplay.position[0]);
-            winDispVerPosSlider.value = parseInt(winningDisplay.position[1]);
-            winDispVerPosNumber.value = parseInt(winningDisplay.position[1]);
-            winningColour.value = winningDisplay.colours[0];
-            losingColour.value = winningDisplay.colours[1];
-            drawColour.value =  winningDisplay.colours[2];
-            winningDisplaySize.value = parseFloat(winningDisplay.size);
-            winningDisplayOpacity.value = winningDisplay.opacity;
-        };
-        setKdrDisplay = () => {
-            const kdrDisplay = result.kdrDisplay;
-            kdrDispHorPosSlider.value = parseInt(kdrDisplay.position[0]);
-            kdrDispHorPosNumber.value = parseInt(kdrDisplay.position[0]);
-            kdrDispVerPosSlider.value = parseInt(kdrDisplay.position[1]);
-            kdrDispVerPosNumber.value = parseInt(kdrDisplay.position[1]);
-            aboveTargetColour.value =  kdrDisplay.colours[0];
-            belowTargetColour.value = kdrDisplay.colours[1];
-            targetKdr.value = kdrDisplay.target;
-            kdrDisplaySize.value = parseFloat(kdrDisplay.size);
-            kdrDisplayOpacity.value = kdrDisplay.opacity;
-        };
-        setConnectedDisplay = () => {
-            const connectedDisplay = result.connectedDisplay;
-            conDispHorPosSlider.value = parseInt(connectedDisplay.position[0]);
-            conDispHorPosNumber.value = parseInt(connectedDisplay.position[0]);
-            conDispVerPosSlider.value = parseInt(connectedDisplay.position[1]);
-            conDispVerPosNumber.value = parseInt(connectedDisplay.position[1]);
-            connectedColour.value =  connectedDisplay.colour;
-            updateInt.value = connectedDisplay.updateInt;
-            connectedDisplaySize.value = parseFloat(connectedDisplay.size);
-            connectedDisplayOpacity.value = connectedDisplay.opacity;
-        }
-        setWinningDisplay();
-        setKdrDisplay();
-        setConnectedDisplay();
-    })
-}
-setAllValues();
+        toggleReload.checked = toggles[4];
+    });
+    setMenuTimer();
+    setWinningDisplay();
+    setKdrDisplay();
+    setConnectedDisplay();
+};

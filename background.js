@@ -1,31 +1,22 @@
-chrome.runtime.onInstalled.addListener(()=>{
-    chrome.storage.sync.set({
-        
-        menuTimerColours: ["#00FFFF","#FFA500"],
-        newGameHotkey:'F4',
-        winningDisplay: {
-            colours: ['#5699eb','#eb5656', '#909497'], //winning, losing, draw
-            position: ['40%','80%'], //left, top
-            size: '2em',
-            opacity: 0.5
-        },
-        kdrDisplay: {
-            colours: ['#8BC34A', '#E74C3C'], //over min, under min
-            position: ['55%', '80%'], //left, top
-            target: 0,
-            size: '2em',
-            opacity: 0.5
-        },
-        connectedDisplay: {
-            colour: '#FFFFFF',
-            position: ['15%', '94%'],
-            updateInt: 5000,
-            size: '2em',
-            opacity: 0.5
-        },
-        toggles: [true, true, true, true], //menuTimer, winningDisplay, kdrDisplay, connectedDisplay
-        css: 'default'
-    });
-});
+chrome.runtime.onInstalled.addListener(resetSettings);
 
-//chrome.storage.sync.clear()
+function resetSettings(){
+        chrome.runtime.getPackageDirectoryEntry(root => { 
+    
+            const rootReader = root.createReader();
+            rootReader.readEntries(result => {
+    
+                const targetFile = result.filter(file => file.name === 'defaultSettings.json')[0];
+                targetFile.file(file => {
+    
+                    const fileReader = new FileReader();
+                    fileReader.onload = e => {
+                        const data = JSON.parse(e.target.result);
+                        chrome.storage.sync.clear();
+                        chrome.storage.sync.set(data);
+                    };
+                    fileReader.readAsText(file);
+                });
+            });
+        });
+    };
