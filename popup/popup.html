@@ -32,7 +32,7 @@
 
                 <button id="importSettings" class="importExportBtn">Import</button><button id="exportSettings" class="importExportBtn">Export</button>
 
-                <textarea id="settingsText" placeholder="Paste settings to import or export and copy settings" rows="5" cols="60" spellcheck="false"></textarea>
+                <textarea id="settingsText" placeholder="Paste settings to import or export and copy settings" rows="10" cols="60" spellcheck="false"></textarea>
                 
             </section>
 
@@ -223,7 +223,7 @@
                         <input type="number" id="conDispHorPosNumber" min="0" max="100">
                     </div>
                     <div>
-                       <label for="conDispVerPos">Vertical Position</label>
+                        <label for="conDispVerPos">Vertical Position</label>
                         <input type="range" id="conDispVerPosSlider" min="0" max="100">
                         <input type="number" id="conDispVerPosNumber" min="0" max="100"> 
                     </div>
@@ -240,6 +240,46 @@
                     <button id="resetConnectedDisplayBtn" class="applyResetBtn resetBtn">Reset</button>
                 </div>               
 
+            </section>
+
+            <section id="reload">
+                <h3>Reload</h3>
+                <input type="checkbox" id="toggleReload" class="toggle">
+
+                <div id="reloadSettings">
+                    <div>
+                        <label for="reloadColour">Reload Colour</label>
+                        <input type="color" id="reloadColour">
+                    </div>
+                    <div>
+                        <label for="reloadOpacity">Reload Opacity</label>
+                        <input type="range" id="reloadOpacity" min="0" max="1" step="0.1" list="opacityMarks">
+                    </div>
+                    <div>
+                        <label for="reloadWidth">Width</label>
+                        <input type="range" id="reloadWidth" min="0" max="100">
+                        <input type="number" id="reloadWidth" min="0" max="100">
+                    </div>
+                    <div>
+                        <label for="reloadHeight">Height</label>
+                        <input type="range" id="reloadHeightSlider" min="0" max="100">
+                        <input type="number" id="reloadHeightNumber" min="0" max="100"> 
+                    </div>
+                    <div>
+                        <label for="reloadHorPos">Horizontal Position</label>
+                        <input type="range" id="reloadHorPosSlider" min="0" max="100">
+                        <input type="number" id="reloadHorPosNumber" min="0" max="100">
+                    </div>
+                    <div>
+                        <label for="reloadVerPos">Vertical Position</label>
+                        <input type="range" id="reloadPosSlider" min="0" max="100">
+                        <input type="number" id="reloadPosNumber" min="0" max="100"> 
+                    </div>
+
+                    <button id="applyReloadBtn" class="applyResetBtn applyBtn">Apply</button>
+                    <button id="resetReloadBtn" class="applyResetBtn resetBtn">Reset</button>
+                </div>
+                
             </section>
 
         </section>
