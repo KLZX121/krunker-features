@@ -24,9 +24,14 @@ button, select, input[type="button"] {
     outline: none;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.5);
+    transition-property: filter;
+    transition-duration: 150ms;
 }
 button:hover, select:hover, input[type="button"]:hover {
     border: white solid;
+}
+button:active {
+    filter: brightness(75%);
 }
 h3 {
     font-size: 1.5em;
