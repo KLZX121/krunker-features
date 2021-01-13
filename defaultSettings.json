@@ -23,7 +23,7 @@
     },
     "reload": {
         "colour": "#FFFFFF",
-        "position": ["- 40px", "+ 35px"],
+        "position": ["-40px", "+35px"],
         "size": ["50px", "5px"], 
         "opacity": 0.3
     },
