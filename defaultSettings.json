@@ -5,27 +5,27 @@
         "colours": ["#5699eb","#eb5656", "#909497"],
         "position": ["40%","80%"],
         "size": "2em",
-        "opacity": 0.5
+        "opacity": "0.5"
     },
     "kdrDisplay": {
         "colours": ["#8BC34A", "#E74C3C"],
         "position": ["55%", "80%"],
-        "target": 0,
+        "target": "0",
         "size": "2em",
-        "opacity": 0.5
+        "opacity": "0.5"
     },
     "connectedDisplay": {
         "colour": "#FFFFFF",
         "position": ["20%", "94%"],
-        "updateInt": 5000,
+        "updateInt": "5000",
         "size": "2em",
-        "opacity": 0.5
+        "opacity": "0.5"
     },
     "reload": {
         "colour": "#FFFFFF",
         "position": ["-40px", "+35px"],
         "size": ["50px", "5px"], 
-        "opacity": 0.3
+        "opacity": "0.3"
     },
     "toggles": [true, true, true, true, true],
     "css": "default"
