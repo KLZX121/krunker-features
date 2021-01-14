@@ -15,7 +15,7 @@
 <h2>Current features</h2>
 <h3>CSS Swapper</h3>
 <p>To use a custom CSS in-game, place your CSS file in the css folder of the extension, and select it in the extension settings.</p>
-<h3>Version 2.1</h3>
+<h3>Version 2.2</h3>
 <ul>
 	<li>
 		<strong>Menu UI</strong>
@@ -41,7 +41,7 @@
 			<li>
 				<strong>Customise:</strong>
 				<ul>
-					<li>Colour of normal and low time</li>
+					<li>Colour (normal time, low time)</li>
 				</ul>
 			</li>
 		</ul>
@@ -66,8 +66,10 @@
 			<li>
 				<strong>Customise:</strong>
 				<ul>
-					<li>Colour of 'Winning', 'Losing' and 'Draw'</li>
-					<li>Position</li>
+					<li>Colour (Winning, Losing and Draw)</li>
+					<li>Position (x,y)</li>
+					<li>Size</li>
+					<li>Background Opacity</li>
 				</ul>
 			</li>
 		</ul>
@@ -80,9 +82,43 @@
 			<li>
 				<strong>Customise:</strong>
 				<ul>
-					<li>Colour when above target KDR and when below target KDR</li>
+					<li>Colour (above target, below target)</li>
 					<li>Target KDR</li>
-					<li>Position</li>
+					<li>Position (x,y)</li>
+					<li>Size</li>
+					<li>Background Opacity</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Connected Display</strong>
+		<ul>
+			<li>Displays the number of connected people to the lobby (x connected, x in menu)</li>
+			<li>Only works if you are able to chat (above level 5) and chat is enabled</li>
+			<li>
+				<strong>Customise:</strong>
+				<ul>
+					<li>Colour</li>
+					<li>Update Interval</li>
+					<li>Position (x,y)</li>
+					<li>Size</li>
+					<li>Background Opacity</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<strong>Reload</strong>
+		<ul>
+			<li>Moves the reload animation (sliding bar) under the crosshair (or custom position)</li>
+			<li>
+				<strong>Customise:</strong>
+				<ul>
+					<li>Colour</li>
+					<li>Opacity</li>
+					<li>Size (width, height)</li>
+					<li>Position (x, y)</li>
 				</ul>
 			</li>
 		</ul>

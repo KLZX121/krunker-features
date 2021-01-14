@@ -2,6 +2,8 @@
 //reference input events in html
 //reduce boilerplate someday
 
+//add validation
+
 //optimised code version? remove all getelmeentbyids, and do single line assignemnts for same values
 
 const g = document.getElementById.bind(document); //document.getelementbyid is no needed, but left in anyway
