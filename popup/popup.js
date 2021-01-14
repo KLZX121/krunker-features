@@ -1,5 +1,6 @@
 //combine all into one save button
 //reference input events in html
+//reduce boilerplate someday
 
 //optimised code version? remove all getelmeentbyids, and do single line assignemnts for same values
 
@@ -323,6 +324,26 @@ resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
 
 //======================Reload=========================================
 
+//set maxes
+document.querySelectorAll('.reload').forEach(item => {
+    console.log(item);
+    let max;
+    let min;
+    if (item.id.startsWith('reloadWidth')){
+        max = window.screen.width;
+    } else if (item.id.startsWith('reloadHeight')){
+        max = window.screen.height;
+    } else if (item.id.startsWith('reloadHorPos')){
+        max = Math.floor(window.screen.width/2);
+        min = -max;
+    } else if (item.id.startsWith('reloadVerPos')){
+        max = Math.floor(window.screen.height/2);
+        min = -max;
+    };
+    item.max = max;
+    item.min = min ? min : 0;
+});
+
 //sync
 reloadHorPosSlider.addEventListener('input', event => {
     reloadHorPosNumber.value = event.target.value;
@@ -366,7 +387,7 @@ applyReloadBtn.onclick = function applyReloadDisplay(){
 
 //reset
 resetReloadBtn.onclick = function resetReloadDisplay(){
-    resetSettings('reload', setReloadDisplay);
+    resetSettings('reload', setReload);
 };
 
 //======================Toggles========================================

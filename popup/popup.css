@@ -70,6 +70,9 @@ input[type="number"], input[type="text"]{
     text-align: center;
     float: right;
 }
+input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
 input[type="range"] {
     position: absolute;
     left: 42%;
@@ -164,3 +167,5 @@ input[type="checkbox"]:checked + div {
 #updateInt {
     width: 5em;
 }
+
+/* reload */
