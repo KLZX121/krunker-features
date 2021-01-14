@@ -1,13 +1,9 @@
-//DEFAULT SETTINGS REFERENCES
-//background.js
-//reset buttons for each feature
-//reset all settings
-
 //combine all into one save button
 //reference input events in html
 
-const g = document.getElementById.bind(document);
+//optimised code version? remove all getelmeentbyids, and do single line assignemnts for same values
 
+const g = document.getElementById.bind(document); //document.getelementbyid is no needed, but left in anyway
 //======================Info Container=================================
 
 const readMe = g('readMe');
@@ -319,9 +315,58 @@ applyConnectedDisplayBtn.onclick = function applyConnectedDisplay(){
     }});
 };
 
+//reset
 const resetConnectedDisplayBtn = g('resetConnectedDisplayBtn');
 resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
     resetSettings('connectedDisplay', setConnectedDisplay);
+};
+
+//======================Reload=========================================
+
+//sync
+reloadHorPosSlider.addEventListener('input', event => {
+    reloadHorPosNumber.value = event.target.value;
+});
+reloadHorPosNumber.addEventListener('input', event => {
+    reloadHorPosSlider.value = event.target.value;
+});
+reloadVerPosSlider.addEventListener('input', event => {
+    reloadVerPosNumber.value = event.target.value;
+});
+reloadVerPosNumber.addEventListener('input', event => {
+    reloadVerPosSlider.value = event.target.value;
+});
+reloadWidthSlider.addEventListener('input', event => {
+    reloadWidthNumber.value = event.target.value;
+});
+reloadWidthNumber.addEventListener('input', event => {
+    reloadWidthSlider.value = event.target.value;
+});
+reloadHeightSlider.addEventListener('input', event => {
+    reloadHeightNumber.value = event.target.value;
+});
+reloadHeightNumber.addEventListener('input', event => {
+    reloadHeightSlider.value = event.target.value;
+});
+
+//apply
+applyReloadBtn.onclick = function applyReloadDisplay(){
+    const values = [reloadHorPosNumber.value, reloadVerPosNumber.value];
+    let position = [
+        `${values[0][0] !== '-' ? '+' : ''}${values[0]}px`,
+        `${values[1][0] !== '-' ? '+' : ''}${values[1]}px`
+    ];
+    chrome.storage.sync.set({reload: {
+        colour: reloadColour.value,
+        position: position,
+        size: [`${reloadWidthNumber.value}px`, `${reloadHeightNumber.value}px`], 
+        opacity: reloadOpacity.value
+    }});
+};
+
+//reset
+resetReloadBtn.onclick = function resetReloadDisplay(){
+    resetSettings('reload', setReloadDisplay);
 };
 
 //======================Toggles========================================
@@ -411,6 +456,22 @@ function setConnectedDisplay(){
         connectedDisplayOpacity.value = connectedDisplay.opacity;
     });
 };
+function setReload(){
+    chrome.storage.sync.get('reload', result => {
+        const reload = result.reload;
+        reloadColour.value = reload.colour;
+        reloadOpacity.value = reload.opacity;
+        reloadWidthNumber.value = parseInt(reload.size[0]);
+        reloadHeightNumber.value = parseInt(reload.size[1]);
+        reloadHorPosNumber.value = parseInt(reload.position[0]);
+        reloadVerPosNumber.value = parseInt(reload.position[1]);
+        reloadWidthSlider.value = parseInt(reload.size[0]);
+        reloadHeightSlider.value = parseInt(reload.size[1]);
+        reloadHorPosSlider.value = parseInt(reload.position[0]);
+        reloadVerPosSlider.value = parseInt(reload.position[1]);
+
+    })
+}
 function setAllValues(){
     chrome.storage.sync.get(null, result=>{
         //newGame hotkey
@@ -427,4 +488,5 @@ function setAllValues(){
     setWinningDisplay();
     setKdrDisplay();
     setConnectedDisplay();
+    setReload();
 };
