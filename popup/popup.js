@@ -5,7 +5,6 @@
 //add validation
 
 //optimised code version? remove all getelmeentbyids, and do single line assignemnts for same values
-
 const g = document.getElementById.bind(document); //document.getelementbyid is no needed, but left in anyway
 //======================Info Container=================================
 
@@ -328,7 +327,6 @@ resetConnectedDisplayBtn.onclick = function resetConnectedDisplay(){
 
 //set maxes
 document.querySelectorAll('.reload').forEach(item => {
-    console.log(item);
     let max;
     let min;
     if (item.id.startsWith('reloadWidth')){
