@@ -14,7 +14,7 @@ chrome.storage.sync.get('toggles', result => {
         document.getElementById('inGameUI').prepend(ammoDisplay);
 
         chrome.storage.sync.get('reload', result => {
-            const ammoDisplayStyle = document.styleSheets[0].cssRules[232].style;
+            const ammoDisplayStyle = document.styleSheets[0].cssRules[233].style;
             const rgba = `rgba(${hexToRgb(result.reload.colour)},${result.reload.opacity})`;
             ammoDisplayStyle.setProperty('background-image', `linear-gradient(${rgba}, ${rgba})`); //reloading colour
             
