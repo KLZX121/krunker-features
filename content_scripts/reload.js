@@ -7,16 +7,16 @@ chrome.storage.sync.get('toggles', result => {
         const  ammoBacking = document.createElement('div');
         ammoBacking.style = 'font-size: 35px; background-color: rgba(0, 0, 0, 0.3); padding: 7px; padding-top: 8px; padding-left: 20px; border-radius: 6px';
         g('bottomRight').appendChild(ammoBacking);
-        ammoBacking.append(g('ammoVal'), ' ', g('ammoMax'), g('ammoIcon'));
+        ammoBacking.append(g('ammoVal'), ' ', g('ammoMax'),' ', g('ammoIcon'));
 
         //setup ammoDisplay
         const ammoDisplay = document.getElementById('ammoDisplay');
         document.getElementById('inGameUI').prepend(ammoDisplay);
 
+        ammoDisplay.innerHTML = null;
+
         chrome.storage.sync.get('reload', result => {
-            const ammoDisplayStyle = document.styleSheets[0].cssRules[233].style;
             const rgba = `rgba(${hexToRgb(result.reload.colour)},${result.reload.opacity})`;
-            ammoDisplayStyle.setProperty('background-image', `linear-gradient(${rgba}, ${rgba})`); //reloading colour
             
             const left = result.reload.position[0].replace('-', '- ').replace('+', '+ ');
             const top = result.reload.position[1].replace('-', '- ').replace('+', '+ ');
@@ -26,6 +26,7 @@ chrome.storage.sync.get('toggles', result => {
                 left: calc(50% ${left});
                 top: calc(50% ${top}); 
                 border-radius: 0px;
+                background-image: linear-gradient(${rgba}, ${rgba});
             `;
         });
 
